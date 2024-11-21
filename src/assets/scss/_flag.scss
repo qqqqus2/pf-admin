@@ -1,0 +1,31 @@
+@use "common" as *;
+/*** Flag ***/
+.flag {
+  display: inline-block;
+  border-radius: rem(4);
+  color: #fff;
+  user-select: none;
+  &.flag-gray {
+    background-color: #8a99af;
+  }
+  &.flag-blue {
+    background-color: #3056d3;
+  }
+  &.flag-red {
+    background-color: #f42b37;
+  }
+  &.flag-black {
+    background-color: #23252a;
+  }
+  &.size-m {
+    padding: rem(4) rem(10);
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: rem(24);
+  }
+  &.size-s {
+    padding: rem(1) rem(6);
+    font-size: rem(12);
+    line-height: rem(16);
+  }
+}

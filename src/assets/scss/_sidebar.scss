@@ -1,0 +1,201 @@
+@use "common" as *;
+
+/*** Sidebar ***/
+//-- default
+.sidebar {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: rem(80);
+  height: 100vh;
+  background-color: #23252a;
+  transition: width 0.2s ease-out;
+  .logo {
+    display: flex;
+    justify-content: center;
+    padding: rem(32) 0 rem(24);
+    svg {
+      flex-shrink: 0;
+    }
+  }
+  .container {
+    flex-grow: 1;
+    position: relative;
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: rem(16);
+    bottom: rem(16);
+  }
+  .cate-box {
+    position: relative;
+    width: rem(48);
+    .cate-tit {
+      display: none;
+      color: #8a99af;
+      font-size: rem(14);
+      font-weight: 500;
+      line-height: rem(22);
+    }
+    > ul {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(6);
+      li {
+        position: relative;
+      }
+    }
+    & + .cate-box {
+      margin-top: rem(6);
+    }
+  }
+  .menu-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: rem(48);
+    border-radius: rem(3);
+    transition: background 0.2s ease-out;
+    &-icon svg {
+      width: rem(24);
+      height: rem(24);
+    }
+    &-tit {
+      display: none;
+      margin-right: auto;
+      margin-left: rem(10);
+      color: #dee4ee;
+      font-size: rem(16);
+      font-weight: 500;
+      line-height: rem(24);
+    }
+    &-arrow {
+      display: none;
+    }
+    &.open {
+      background-color: #333a48;
+      .menu-item-icon svg path {
+        fill: #22d663;
+      }
+      .menu-item-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-in-out;
+      }
+      & + .sub-menu {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+    }
+  }
+  .sub-menu {
+    position: absolute;
+    z-index: 1055;
+    top: 0;
+    left: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    min-width: rem(186);
+    margin-left: rem(24);
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: rem(12);
+      background-color: #23252a;
+      border: 1px solid #7b808a;
+      border-radius: rem(8);
+      box-shadow: 12px 12px 20px -10px rgba(0, 0, 0, 0.08),
+        0px -7px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+    .sub-item {
+      width: 100%;
+      padding: rem(10) rem(16);
+      color: #8a99af;
+      font-size: rem(14);
+      font-weight: 400;
+      line-height: rem(20);
+      text-align: left;
+      &.selected {
+        background-color: #333a48;
+        border-radius: rem(3);
+        color: #ffffff;
+        font-weight: 600;
+      }
+    }
+  }
+
+  //-- open
+  &.snb-open {
+    width: rem(280);
+    .logo {
+      padding: rem(32) 0;
+    }
+    nav {
+      --scrollbar-color-thumb: #666666;
+      &::-webkit-scrollbar-thumb {
+        border: 5px solid transparent;
+      }
+      overflow-y: auto;
+      left: rem(24);
+      bottom: rem(24);
+    }
+    .cate-box {
+      width: rem(232);
+      .cate-tit {
+        display: block;
+      }
+      > ul {
+        margin-top: rem(12);
+      }
+      & + .cate-box {
+        margin-top: rem(24);
+      }
+    }
+    .menu-item {
+      justify-content: space-between;
+      height: rem(40);
+      padding: 0 rem(12) 0 rem(16);
+      &-tit,
+      &-arrow {
+        display: block;
+      }
+      &-icon svg {
+        width: rem(18);
+        height: rem(18);
+      }
+      &.open {
+        .menu-item-icon svg path {
+          fill: #dee4ee;
+        }
+      }
+    }
+    .sub-menu {
+      position: initial;
+      min-width: initial;
+      margin-left: 0;
+      ul {
+        row-gap: rem(10);
+        padding: rem(15) 0 rem(22);
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+      }
+      .sub-item {
+        padding: 0 0 0 rem(43);
+        font-size: rem(16);
+        font-weight: 500;
+        line-height: rem(24);
+        &.selected {
+          background-color: transparent;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "common" as *;
+.topbar {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  height: rem(80);
+  .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(12);
+    color: #23252a;
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    color: #7b808a;
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: rem(24);
+    li + li {
+      padding-left: rem(8);
+      &::before {
+        content: "/";
+        margin-right: rem(8);
+        color: #7b808a;
+      }
+    }
+    .current {
+      color: #09bc71;
+    }
+  }
+}

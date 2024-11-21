@@ -1,0 +1,50 @@
+@use "common" as *;
+.drawer-basic {
+  z-index: 1055;
+  .drawer-toggle:checked ~ .drawer-side {
+    overflow-y: hidden;
+    & > .drawer-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .drawer-inner {
+    position: relative;
+    width: rem(860);
+    min-height: 100%;
+    padding-top: rem(86);
+    background-color: #fff;
+  }
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 rem(40);
+    .title {
+      font-size: rem(26);
+      font-weight: 700;
+      line-height: rem(30);
+      span {
+        margin-left: rem(8);
+        color: #212b36;
+        font-size: rem(16);
+        font-weight: 500;
+        line-height: rem(24);
+      }
+    }
+  }
+  .drawer-body {
+    overflow: hidden auto;
+    position: absolute;
+    top: rem(142);
+    right: rem(15);
+    bottom: rem(40);
+    left: rem(40);
+  }
+  .drawer-close {
+    position: absolute;
+    top: rem(35);
+    right: rem(35);
+    display: flex;
+    padding: rem(5);
+    cursor: pointer;
+  }
+}

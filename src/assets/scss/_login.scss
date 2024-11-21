@@ -1,0 +1,206 @@
+@use "common" as *;
+/*** Login Layout ***/
+.lyt-login {
+  position: relative;
+  display: flex;
+  gap: rem(12);
+  width: 100%;
+  height: 100vh;
+  padding: rem(24);
+  .login-bg {
+    overflow: hidden;
+    position: relative;
+    width: 58%;
+    height: 100%;
+    background: url("/images/bg_login.png") center top/auto 100% no-repeat;
+    border-radius: rem(32);
+  }
+}
+
+/*** Login Button ***/
+%btn-login {
+  height: rem(56);
+  padding: 0 rem(39);
+  border-radius: rem(8);
+  font-size: rem(16);
+  font-weight: 600;
+  line-height: rem(26);
+}
+
+.btn-login-green {
+  &,
+  &:not(:disabled):hover,
+  &:disabled {
+    @extend %btn-login;
+    background-color: #22d663;
+    border-color: #22d663;
+    color: #ffffff;
+  }
+}
+
+.btn-login-outline-green {
+  &,
+  &:not(:disabled):hover,
+  &:disabled {
+    @extend %btn-login;
+    background-color: #ffffff;
+    border-color: #22d663;
+    color: #22d663;
+  }
+}
+
+.btn-login-outline-gray {
+  &,
+  &:not(:disabled):hover,
+  &:disabled {
+    @extend %btn-login;
+    background-color: #f4f5f8;
+    border-color: #e2e8f0;
+    color: #7b808a;
+  }
+}
+
+/*** Login Input ***/
+.login-input {
+  &[class*="icon-"] .inner {
+    padding: 0 rem(60) 0 rem(23);
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: rem(20);
+      display: block;
+      width: rem(24);
+      height: rem(24);
+      margin-top: rem(-12);
+    }
+  }
+  &.icon-id .inner::after {
+    background: url("@/assets/icons/ico_login_id.svg") 0 0/100% no-repeat;
+  }
+  &.icon-pw .inner::after {
+    background: url("@/assets/icons/ico_login_pw.svg") 0 0/100% no-repeat;
+  }
+  &:not(.error):not(.disabled):focus-within .inner {
+    border-color: #23252a;
+  }
+  &.disabled {
+    .inner {
+      background-color: #f4f5f8;
+      border-color: #e2e8f0;
+    }
+    input {
+      color: #7b808a;
+    }
+  }
+  &.error input {
+    color: #f42b37;
+  }
+  > .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    width: 100%;
+    height: rem(56);
+    padding: 0 rem(11) 0 rem(17);
+    border: 1px solid #e2e8f0;
+    border-radius: rem(8);
+  }
+  input {
+    width: 100%;
+    background-color: transparent;
+    color: #23252a;
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: rem(22);
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #7b808a;
+    }
+  }
+  .btn-evt {
+    padding: rem(3) rem(9);
+    background-color: #f4f5f8;
+    border: 1px solid #e2e8f0;
+    border-radius: rem(7);
+    color: #7b808a;
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: rem(22);
+    white-space: nowrap;
+  }
+  .btn-reset {
+    flex: 0 0 auto;
+    width: rem(18);
+    height: rem(18);
+    background: url("@/assets/icons/ico_circle_xmark.svg") 0 0 / contain
+      no-repeat;
+  }
+  .count {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    color: #22d663;
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: rem(20);
+  }
+}
+
+/*** Login Role ***/
+.login-role {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: rem(140);
+  padding: rem(16) rem(16) rem(16) rem(136);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: rem(8);
+  }
+  &:hover {
+    background-color: #f8fbfe;
+  }
+  &.selected {
+    &::after {
+      border: 2px solid #22d663;
+    }
+    .tit {
+      color: #22d663;
+    }
+  }
+  svg {
+    position: absolute;
+    top: rem(30);
+    left: rem(36);
+  }
+  .tit {
+    font-size: rem(22);
+    font-weight: 700;
+    line-height: rem(28);
+  }
+  .desc {
+    margin-top: rem(4);
+    color: #7b808a;
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: rem(24);
+  }
+}
+
+/*** Text Exclam ***/
+.text-exclam {
+  padding-left: rem(20);
+  background: url("@/assets/icons/ico_exclam_1.svg") left center/1rem no-repeat;
+  color: #f42b37;
+  font-size: rem(14);
+  font-weight: 600;
+  line-height: rem(20);
+}

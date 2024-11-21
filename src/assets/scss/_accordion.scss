@@ -1,0 +1,23 @@
+@use "./common.scss" as *;
+
+.accordion {
+  &.open {
+    .acn-arrow {
+      transform: rotate(0);
+    }
+    .acn-content {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+  }
+  .acn-arrow {
+    transition: all 0.15s ease-out;
+    transform: rotate(180deg);
+  }
+  .acn-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: all 0.2s ease-out;
+  }
+}
