@@ -44,4 +44,28 @@ export const pubRouter = [
         path: "/pub/page/voucherMgt/list",
         title: "_쿠폰/포인트관리>포인트상품권관리>상품권리스트(BO053001) - hiuxc작업",
     },
+
+    // 05 시설관리 (tab)
+    {
+        path: "/pub/page/facilityMgt/list",
+        title: "_시설관리>AIot 센서 관리>리스트(탭구조) - hiuxc작업",
+    },
+
+    // 06 문의관리
+    {
+        path: "/pub/page/voucherMgt/list",
+        title: "_문의관리>공유신청관리>리스트(BO053001) - hiuxc작업",
+    },
+    {
+        path: "/pub/page/voucherMgt/list",
+        title: "_문의관리>1:1문의관리>리스트(BO053001) - hiuxc작업",
+    },
+    {
+        path: "/pub/page/voucherMgt/list",
+        title: "_문의관리>제보관리>리스트(BO053001) - hiuxc작업",
+    },
+    {
+        path: "/pub/page/voucherMgt/list",
+        title: "_문의관리>결제대행관리>리스트(BO053001) - hiuxc작업",
+    },
 ];

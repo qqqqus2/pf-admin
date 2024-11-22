@@ -2,7 +2,6 @@ import DefaultLayout from "@pub/layout/DefaultLayout";
 import Topbar from "@pub/components/Topbar";
 import Button from "@pub/components/Button";
 import ButtonGroup from "@pub/components/Button/Group";
-import Flag from "@pub/components/Flag";
 import Radio from "@pub/components/Form/Radio";
 import Checkbox from "@pub/components/Form/Check";
 import Input from "@pub/components/Form/Input";
@@ -10,7 +9,6 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
-import IcInfo from "@/assets/icons/ico_circle_info.svg";
 
 export default function CouponMgtList() {
     return (

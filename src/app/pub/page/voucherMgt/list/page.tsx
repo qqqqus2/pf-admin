@@ -4,7 +4,6 @@ import DefaultLayout from "@pub/layout/DefaultLayout";
 import Topbar from "@pub/components/Topbar";
 import Button from "@pub/components/Button";
 import ButtonGroup from "@pub/components/Button/Group";
-import Flag from "@pub/components/Flag";
 import Radio from "@pub/components/Form/Radio";
 import Checkbox from "@pub/components/Form/Check";
 import Input from "@pub/components/Form/Input";
@@ -12,7 +11,6 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
-import IcInfo from "@/assets/icons/ico_circle_info.svg";
 import Drawer from "@pub/components/Drawer";
 import Text from "@pub/components/Form/Text";
 
@@ -184,31 +182,29 @@ export default function VoucherMgtList() {
                         </table>
                     </div>
                     <div className="grid grid-cols-4 items-center mt-6">
-                        <Button
-                            type="blue"
-                            size="m"
-                            className="justify-self-start"
-                            onClick={() => setIsDrawerOpen(true)}
-                        >
-                            등록
-                        </Button>
                         <Paging className="col-start-2 col-span-2" />
-                        <Button
-                            type="outline"
-                            size="m"
-                            className="justify-self-end"
-                        >
-                            <IcExcel />
-                            엑셀다운로드
-                        </Button>
+                        <div className="flex ml-auto items-center gap-3">
+                            <Button
+                                type="outline"
+                                size="m"
+                                className="justify-self-end"
+                            >
+                                <IcExcel />
+                                엑셀다운로드
+                            </Button>
+                            <Button
+                                type="black"
+                                size="m"
+                                className="justify-self-start"
+                                onClick={() => setIsDrawerOpen(true)}
+                            >
+                                등록
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
-            {/* 등록 레이어팝업 */}
-            {/* <RegistePop
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-            /> */}
+
             <Drawer
                 id="voucher-regist-drawer"
                 open={isDrawerOpen}
@@ -223,9 +219,9 @@ export default function VoucherMgtList() {
                         <div className="table-basic">
                             <table>
                                 <colgroup>
-                                    <col width="120px" />
+                                    <col width="150px" />
                                     <col />
-                                    <col width="120px" />
+                                    <col width="150px" />
                                     <col />
                                 </colgroup>
 
@@ -355,9 +351,9 @@ export default function VoucherMgtList() {
                         <div className="table-basic mt-5">
                             <table>
                                 <colgroup>
-                                    <col width="120px" />
+                                    <col width="150px" />
                                     <col />
-                                    <col width="120px" />
+                                    <col width="150px" />
                                     <col />
                                 </colgroup>
                                 <tbody>
