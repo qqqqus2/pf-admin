@@ -104,6 +104,9 @@
         background-color: #f6f8ff;
       }
     }
+    & > tbody > tr > th {
+      border-bottom: 1px solid #e2e8f0;
+    }
     & > tbody > tr > td {
       height: rem(62);
       padding: rem(13) rem(16);
