@@ -11,6 +11,7 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
+import Flag from "@pub/components/Flag";
 import Drawer from "@pub/components/Drawer";
 import Text from "@pub/components/Form/Text";
 
@@ -43,12 +44,12 @@ export default function VoucherMgtList() {
   return (
     <DefaultLayout>
       <Topbar
-        title="공유신청관리"
-        tip="주차공유 중 개인소유주차공간에 대해 신청을 확인하고 관리합니다."
+        title="1:1문의관리"
+        tip="APP을 통한 1:1문의에 대해 확인하고 답변하며 관리합니다."
         path={[
           { text: "홈", url: "/" },
-          { text: "문의관리", url: "/" },
-          { text: "공유신청관리", url: "/" },
+          { text: "1:1문의관리", url: "/" },
+          { text: "목록", url: "/" },
         ]}
       />
       <div className="box-cont">
@@ -56,59 +57,64 @@ export default function VoucherMgtList() {
         <div className="search-box">
           <ul>
             <li>
-              <p className="inline-flex items-center gap-2">
-                신청유형
-                <span
-                  data-tooltip-id="tooltip"
-                  data-tooltip-html="신청유형: <br/>-개인주차공간-빌라/가게/주택 등<br/>-유료주차장-사업자 또는 개발/운영 준비 중"
-                >
-                  <IcInfo />
-                </span>
-              </p>
+              <p className="inline-flex items-center gap-2">문의유형</p>
               <div className="flex items-center gap-6">
-                <Radio name="f1" label="전체" defaultChecked />
-                <Radio name="f1" label="개인주차공간" />
-                <Radio name="f1" label="유료주차장" />
+                <SelectBasic size="m" placeholder="전체" />
               </div>
             </li>
             <li>
-              <p className="inline-flex items-center gap-2">
-                검토결과
-                <span data-tooltip-id="tooltip" data-tooltip-html="검토결과: 전체/등록/보류/미등록">
-                  <IcInfo />
-                </span>
-              </p>
+              <p className="inline-flex items-center gap-2">답변상태</p>
               <div className="flex items-center gap-6">
-                <Checkbox label="전체" defaultChecked />
-                <Checkbox label="검토중" />
-                <Checkbox label="승인완료" />
-                <Checkbox label="반려" />
+                <Radio name="f1" label="전체" defaultChecked />
+                <Radio name="f1" label="답변대기" />
+                <Radio name="f1" label="답변완료" />
               </div>
             </li>
 
             <li>
               <p className="inline-flex items-center gap-2">
-                신청지역
-                <span
-                  data-tooltip-id="tooltip"
-                  data-tooltip-html="신청지역: 신청한 주차장의 위치정보 중, 시/도 및 구 단위까지 세분화 검색 제공"
-                >
+                계정상태
+                <span data-tooltip-id="tooltip" data-tooltip-html="계정상태: 전체/활성/비활성/검토/정지">
                   <IcInfo />
                 </span>
               </p>
-              <div className="inline-flex items-center gap-2">
-                <SelectBasic size="m" placeholder="전체" />
-                <SelectBasic size="m" placeholder="전체" disabled />
+              <div className="inline-flex items-center gap-6">
+                <Checkbox label="전체" defaultChecked />
+                <Checkbox label="활성" />
+                <Checkbox label="비활성" />
+                <Checkbox label="검토" />
+                <Checkbox label="정지" />
               </div>
             </li>
             <li>
-              <p className="inline-flex items-center gap-2">요금방식</p>
+              <p className="inline-flex items-center gap-2">
+                블랙리스트 여부
+                <span data-tooltip-id="tooltip" data-tooltip-html="블랙리스트여부:전체/Y/N">
+                  <IcInfo />
+                </span>
+              </p>
               <div className="flex items-center gap-6">
-                <Checkbox label="전체" defaultChecked />
-                <Checkbox label="시간권" />
-                <Checkbox label="당일권" />
-                <Checkbox label="월주차" />
-                <Checkbox label="기타" />
+                <Radio name="f2" label="전체" defaultChecked />
+                <Radio name="f2" label="Y" />
+                <Radio name="f2" label="N" />
+              </div>
+            </li>
+
+            <li className="col-span-2">
+              <p className="inline-flex items-center gap-2">
+                회원유형
+                <span data-tooltip-id="tooltip" data-tooltip-html="전체/회원/파트너">
+                  <IcInfo />
+                </span>
+              </p>
+              <div className="flex items-center gap-6">
+                <Radio name="f3" label="전체" defaultChecked />
+                <Radio name="f3" label="회원" />
+                <Radio name="f3" label="파트너" />
+                <div className="flex items-center gap-2">
+                  <SelectBasic placeholder="대분류를 선택하세요" size="m" disabled />
+                  <SelectBasic placeholder="소분류를 선택하세요" size="m" disabled />
+                </div>
               </div>
             </li>
 
@@ -139,106 +145,115 @@ export default function VoucherMgtList() {
               총 <span className="text-green">231</span>건
             </p>
             <div className="ml-auto flex flex-wrap gap-3">
+              <SelectBasic size="m" placeholder="최근등록순" />
               <SelectBasic size="m" placeholder="50개씩 보기" />
             </div>
           </div>
           <div className="table-grid mt-4">
             <table>
               <colgroup>
-                <col width="60px" />
-                <col width="100px" />
+                <col width="40px" />
                 <col />
                 <col />
                 <col />
-                <col width="100px" />
+                <col />
+                <col width="240px" />
                 <col />
                 <col />
-                <col width="160px" />
+                <col />
+                <col />
                 <col />
                 <col />
                 <col />
               </colgroup>
               <thead>
                 <tr>
-                  <th>
-                    <Checkbox />
-                  </th>
-                  <th>신청번호</th>
-                  <th>신청유형</th>
-                  <th>시/도</th>
-                  <th>구/시</th>
-                  <th>요금방식</th>
-                  <th>신청자</th>
-                  <th>검토결과</th>
-                  <th>담당자</th>
-                  <th>검토일시</th>
+                  <th>번호</th>
+                  <th>문의번호</th>
+                  <th>문의유형</th>
+                  <th>회원유형</th>
+                  <th>계정상태</th>
+                  <th>제목</th>
+                  <th>휴대폰번호</th>
+                  <th>이름(닉네임)</th>
+                  <th>문의일시</th>
+                  <th>답변자</th>
+                  <th>답변일시</th>
                   <th>최종수정자</th>
                   <th>최종수정일시</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <Checkbox />
-                  </td>
+                  <td>10</td>
                   <td>
                     <button type="button" className="flex items-center gap-1">
-                      <span className="underline text-green">RS12345678</span>
+                      <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
-                  <td>개인주차공간</td>
-                  <td>경기도</td>
-                  <td>성남시</td>
-                  <td>시간권</td>
-                  <td>010-1234-5678</td>
-                  <td>-</td>
+                  <td>주차권</td>
+                  <td>APP회원</td>
+                  <td>활성</td>
                   <td>
-                    <SelectBasic size="s" placeholder="담당자명" className="ml-auto" />
+                    <div className="line-clamp-2">
+                      문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.
+                    </div>
                   </td>
+                  <td>010-1234-5678</td>
+                  <td>
+                    <div className="flex justify-center items-center gap-2">
+                      홍길동
+                      <Flag type="black" size="s" label="B" />
+                    </div>
+                  </td>
+                  <td>yyyy-mm-dd 00:00</td>
+                  <td>-</td>
                   <td>-</td>
                   <td>-</td>
                   <td>-</td>
                 </tr>
-                <tr>
-                  <td>
-                    <Checkbox />
-                  </td>
+                <tr className="bg-cell-red">
+                  <td>10</td>
                   <td>
                     <button type="button" className="flex items-center gap-1">
-                      <span className="underline text-green">RS12345678</span>
+                      <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
-                  <td>개인주차공간</td>
-                  <td>경기도</td>
-                  <td>성남시</td>
-                  <td>시간권</td>
-                  <td>010-1234-5678</td>
-                  <td>-</td>
+                  <td>주차권</td>
+                  <td>APP회원</td>
+                  <td>활성</td>
                   <td>
-                    <SelectBasic size="s" placeholder="담당자명" className="ml-auto" />
+                    <div className="line-clamp-2">
+                      문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.
+                    </div>
                   </td>
+                  <td>010-1234-5678</td>
+                  <td>홍길동</td>
+                  <td>yyyy-mm-dd 00:00</td>
+                  <td>-</td>
                   <td>-</td>
                   <td>-</td>
                   <td>-</td>
                 </tr>
-                <tr>
-                  <td>
-                    <Checkbox />
-                  </td>
+                <tr className="bg-[#F4F5F8]">
+                  <td>10</td>
                   <td>
                     <button type="button" className="flex items-center gap-1">
-                      <span className="underline text-green">RS12345678</span>
+                      <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
-                  <td>개인주차공간</td>
-                  <td>경기도</td>
-                  <td>성남시</td>
-                  <td>시간권</td>
-                  <td>010-1234-5678</td>
-                  <td>-</td>
+                  <td>주차권</td>
+                  <td>APP회원</td>
+                  <td>활성</td>
                   <td>
-                    <SelectBasic size="s" placeholder="담당자명" className="ml-auto" />
+                    <div className="line-clamp-2">
+                      문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.문의 제목이 노출됩니다.
+                    </div>
                   </td>
+                  <td>010-1234-5678</td>
+                  <td>홍길동</td>
+                  <td>yyyy-mm-dd 00:00</td>
+                  <td>-</td>
                   <td>-</td>
                   <td>-</td>
                   <td>-</td>
@@ -252,9 +267,6 @@ export default function VoucherMgtList() {
               <Button type="outline" size="m" className="justify-self-end">
                 <IcExcel />
                 엑셀다운로드
-              </Button>
-              <Button type="black" size="m" className="justify-self-start" onClick={() => setIsDrawerOpen(true)}>
-                저장
               </Button>
             </div>
           </div>

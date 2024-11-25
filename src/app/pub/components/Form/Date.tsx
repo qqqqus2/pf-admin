@@ -16,6 +16,8 @@ export default function FormDate({ size, time, ...props }: DateProps) {
     <DatePicker
       dateFormat={time ? "YYYY-MM-dd  aa hh:mm" : "YYYY-MM-dd"}
       locale={ko}
+      // 2024-11-25 날짜표기
+      selected={startDate}
       onChange={(date) => {
         if (date !== null) {
           setStartDate(date);

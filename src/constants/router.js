@@ -56,4 +56,24 @@ export const pubRouter = [
     path: "/pub/page/qnaMgt/list",
     title: "_문의관리>공유신청관리>리스트(BO061001) - hiuxc작업",
   },
+  {
+    path: "/pub/page/oneononeMgt/list",
+    title: "_문의관리>1:1문의관리>리스트(BO062001) - hiuxc작업",
+  },
+  {
+    path: "/pub/page/reportMgt/list",
+    title: "_문의관리>제보관리>리스트(BO064001) - hiuxc작업",
+  },
+  {
+    path: "/pub/page/paymentMgt/list",
+    title: "_문의관리>결제대행관리>리스트(BO065001) - hiuxc작업",
+  },
+  {
+    path: "/pub/page/paymentMgt/list?case1=true",
+    title: "_문의관리>결제대행관리>리스트(BO065001){회원 + B2G(시간권)} - hiuxc작업",
+  },
+  {
+    path: "/pub/page/paymentMgt/list?case2=true",
+    title: "_문의관리>결제대행관리>리스트(BO065001){비회원 + B2B / B2C} - hiuxc작업",
+  },
 ];
