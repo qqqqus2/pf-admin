@@ -2,171 +2,175 @@
 
 /*** Table Basic ***/
 .table-basic {
-  &.bordered {
-    tr > :not(:first-child) {
-      border-left: 1px solid #e2e8f0;
+    &.bordered {
+        tr > :not(:first-child) {
+            border-left: 1px solid #e2e8f0;
+        }
+        tr > [rowspan] {
+            border-right: 1px solid #e2e8f0;
+        }
     }
-    tr > [rowspan] {
-      border-right: 1px solid #e2e8f0;
+    > table {
+        table-layout: fixed;
+        width: 100%;
+        border-top: 1px solid #e2e8f0;
+        & > thead > tr > th,
+        & > tbody > tr > th {
+            height: rem(48);
+            padding: rem(4) rem(16);
+            border-bottom: 1px solid #e2e8f0;
+            color: #7b808a;
+            font-size: rem(14);
+            font-weight: 500;
+            line-height: rem(22);
+            text-align: left;
+            &:not([class^="bg"]) {
+                background-color: #f4f5f8;
+            }
+        }
+        & > thead > tr > th {
+            text-align: center;
+        }
+        & > tbody > tr > td {
+            height: rem(48);
+            padding: rem(13) rem(16);
+            border-bottom: 1px solid #e2e8f0;
+            font-size: rem(14);
+            font-weight: 500;
+            line-height: rem(22);
+        }
+        & + table {
+            border-top-color: #8a99af;
+        }
     }
-  }
-  > table {
-    table-layout: fixed;
-    width: 100%;
-    border-top: 1px solid #e2e8f0;
-    & > thead > tr > th,
-    & > tbody > tr > th {
-      height: rem(48);
-      padding: rem(4) rem(16);
-      border-bottom: 1px solid #e2e8f0;
-      color: #7b808a;
-      font-size: rem(14);
-      font-weight: 500;
-      line-height: rem(22);
-      text-align: left;
-      &:not([class^="bg"]) {
-        background-color: #f4f5f8;
-      }
-    }
-    & > thead > tr > th {
-      text-align: center;
-    }
-    & > tbody > tr > td {
-      height: rem(48);
-      padding: rem(13) rem(16);
-      border-bottom: 1px solid #e2e8f0;
-      font-size: rem(14);
-      font-weight: 500;
-      line-height: rem(22);
-    }
-    & + table {
-      border-top-color: #8a99af;
-    }
-  }
 }
 
 /*** Title Cell ***/
 .title-cell {
-  display: flex;
-  align-items: center;
-  gap: rem(12);
-  width: 100%;
-  height: rem(50);
-  padding: 0 rem(16);
-  background-color: #6a798f;
-  border: 1px solid #8a99af;
-  color: #fff;
-  &:focus-visible {
-    outline: none;
-  }
-  .tit {
-    margin-right: auto;
-    font-size: rem(16);
-    font-weight: 700;
-    line-height: rem(24);
-  }
-  .desc {
-    font-size: rem(12);
-    line-height: rem(16);
-  }
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    width: 100%;
+    height: rem(50);
+    padding: 0 rem(16);
+    background-color: #6a798f;
+    border: 1px solid #8a99af;
+    color: #fff;
+    &:focus-visible {
+        outline: none;
+    }
+    .tit {
+        margin-right: auto;
+        font-size: rem(16);
+        font-weight: 700;
+        line-height: rem(24);
+    }
+    .desc {
+        font-size: rem(12);
+        line-height: rem(16);
+    }
 }
 
 /*** Table Grid ***/
 .table-grid {
-  overflow-y: auto;
-  position: relative;
-  > table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    text-align: center;
-    & > thead > tr > th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      padding: rem(12) 0;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-      color: #7b808a;
-      font-size: rem(14);
-      font-weight: 500;
-      line-height: rem(22);
-      &:not([class^="bg"]) {
-        background-color: #f7f9fc;
-      }
+    overflow-y: auto;
+    position: relative;
+    > table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        text-align: center;
+        & > thead > tr > th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: rem(12) 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            color: #7b808a;
+            font-size: rem(14);
+            font-weight: 500;
+            line-height: rem(22);
+            &:not([class^="bg"]) {
+                background-color: #f7f9fc;
+            }
+        }
+        & > tbody > tr {
+            &:not([class^="bg"]) {
+                background-color: #fff;
+            }
+            &:hover {
+                background-color: #f6f8ff;
+            }
+        }
+        & > tbody > tr > td {
+            height: rem(62);
+            padding: rem(13) rem(16);
+            border-bottom: 1px solid #e2e8f0;
+            font-size: rem(14);
+            font-weight: 500;
+            line-height: rem(22);
+        }
     }
-    & > tbody > tr {
-      &:not([class^="bg"]) {
-        background-color: #fff;
-      }
-      &:hover {
-        background-color: #f6f8ff;
-      }
+    a {
+        text-decoration: underline;
+        color: #14b6f7;
     }
-    & > tbody > tr > td {
-      height: rem(62);
-      padding: rem(13) rem(16);
-      border-bottom: 1px solid #e2e8f0;
-      font-size: rem(14);
-      font-weight: 500;
-      line-height: rem(22);
-    }
-  }
 }
 
 /*** Table Grid Height ***/
 $sizes: 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
 @each $size in $sizes {
-  .table-grid.row-#{$size} {
-    height: calc((2.875 + 3.875 * $size) * 1rem);
-  }
+    .table-grid.row-#{$size} {
+        height: calc((2.875 + 3.875 * $size) * 1rem);
+    }
 }
 
 /*** Paging ***/
 .paging {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: rem(36);
-  button:not(.btn-paging) {
-    padding: rem(6) rem(12);
-    border-radius: rem(3);
-    color: #606882;
-    font-size: rem(14);
-    font-weight: 500;
-    line-height: rem(22);
-    &.current {
-      background-color: #22d663;
-      color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(36);
+    button:not(.btn-paging) {
+        padding: rem(6) rem(12);
+        border-radius: rem(3);
+        color: #606882;
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: rem(22);
+        &.current {
+            background-color: #22d663;
+            color: #fff;
+        }
     }
-  }
-  .btn-paging {
-    vertical-align: middle;
-    &:disabled path {
-      fill: #b9c5d4;
+    .btn-paging {
+        vertical-align: middle;
+        &:disabled path {
+            fill: #b9c5d4;
+        }
     }
-  }
 }
 
 /*** Table Memo ***/
 .table-memo {
-  padding: rem(20) 0;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: rem(16);
-  line-height: rem(24);
-  table {
-    width: 100%;
-    th {
-      height: rem(50);
-      padding: rem(14) rem(16);
-      color: #7b808a;
-      font-weight: 500;
-      text-align: left;
+    padding: rem(20) 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: rem(16);
+    line-height: rem(24);
+    table {
+        width: 100%;
+        th {
+            height: rem(50);
+            padding: rem(14) rem(16);
+            color: #7b808a;
+            font-weight: 500;
+            text-align: left;
+        }
+        td {
+            padding: rem(14) rem(16);
+            font-weight: 400;
+        }
     }
-    td {
-      padding: rem(14) rem(16);
-      font-weight: 400;
-    }
-  }
 }
