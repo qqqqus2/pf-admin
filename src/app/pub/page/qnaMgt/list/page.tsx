@@ -138,10 +138,6 @@ export default function VoucherMgtList() {
             <p className="h4">
               총 <span className="text-green">231</span>건
             </p>
-            <Button type="outline" size="s" className="justify-self-end">
-              <IcExcel />
-              엑셀다운로드
-            </Button>
             <div className="ml-auto flex flex-wrap gap-3">
               <SelectBasic size="m" placeholder="50개씩 보기" />
             </div>
@@ -253,6 +249,10 @@ export default function VoucherMgtList() {
           <div className="grid grid-cols-4 items-center mt-6">
             <Paging className="col-start-2 col-span-2" />
             <div className="flex ml-auto items-center gap-3">
+              <Button type="outline" size="m" className="justify-self-end">
+                <IcExcel />
+                엑셀다운로드
+              </Button>
               <Button type="black" size="m" className="justify-self-start" onClick={() => setIsDrawerOpen(true)}>
                 저장
               </Button>
