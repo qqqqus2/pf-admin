@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
 import Button from "@pub/components/Button";
-import ButtonGroup from "@pub/components/Button/Group";
+import ButtonGroup from "@pub/components/Button/Group2";
 import Radio from "@pub/components/Form/Radio";
 import Checkbox from "@pub/components/Form/Check";
 import Input from "@pub/components/Form/Input";
@@ -9,28 +10,32 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
-import Drawer from "@pub/components/Drawer";
-import Text from "@pub/components/Form/Text";
+
+import Regist from "./regist";
+import Detail from "./detail";
 
 export const AlotTab = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [drawerType, setDrawerType] = useState(null);
 
-    const handleDrawerClose = (prevState: boolean) => {
-        setIsDrawerOpen(prevState);
+    const handleClose = () => {
+        setIsDrawerOpen(false);
+        setTimeout(() => {
+            setDrawerType(null);
+        }, 300);
     };
 
-    const drawerButtons = [
-        {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
-            type: "outline",
-            icon: false,
-            label: "취소",
-        },
-    ];
+    // 등록 drawer
+    const openRegistDrawer = () => {
+        setDrawerType("regist");
+        setIsDrawerOpen(true);
+    };
+
+    // 상세 drawer
+    const openDetailDrawer = () => {
+        setDrawerType("detail");
+        setIsDrawerOpen(true);
+    };
 
     return (
         <div>
@@ -80,9 +85,9 @@ export const AlotTab = () => {
                             주차장 종류
                         </p>
                         <div className="flex items-center gap-6">
-                            <Radio name="f1" label="전체" defaultChecked />
-                            <Radio name="f1" label="사용(Y)" />
-                            <Radio name="f1" label="사용안함(N)" />
+                            <Radio name="f3" label="전체" defaultChecked />
+                            <Radio name="f3" label="사용(Y)" />
+                            <Radio name="f3" label="사용안함(N)" />
                         </div>
                     </li>
                     <li className="col-span-2">
@@ -194,7 +199,17 @@ export const AlotTab = () => {
                                     <Checkbox />
                                 </th>
                                 <td>10</td>
-                                <td>NNNNN</td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            openDetailDrawer();
+                                        }}
+                                    >
+                                        NNNNN
+                                    </a>
+                                </td>
                                 <td>운용중</td>
                                 <td>그린파킹</td>
                                 <td>99999999</td>
@@ -213,7 +228,17 @@ export const AlotTab = () => {
                                     <Checkbox />
                                 </th>
                                 <td>9</td>
-                                <td>NNNNN</td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            openDetailDrawer();
+                                        }}
+                                    >
+                                        NNNNN
+                                    </a>
+                                </td>
                                 <td>운용중</td>
                                 <td>그린파킹</td>
                                 <td>99999999</td>
@@ -252,174 +277,25 @@ export const AlotTab = () => {
                             type="black"
                             size="m"
                             className="justify-self-start"
-                            onClick={() => setIsDrawerOpen(true)}
+                            onClick={openRegistDrawer}
                         >
                             등록
                         </Button>
                     </div>
                 </div>
             </div>
-            <Drawer
-                id="voucher-regist-drawer"
-                open={isDrawerOpen}
-                handleClose={handleDrawerClose}
-                title="AIoT센서 등록"
-                btns={drawerButtons}
-            >
-                <div>
-                    {/* Drawer 내부 컨텐츠 */}
-                    <div className="h-[calc(100%-140px)] overflow-y-auto">
-                        <div className="table-basic">
-                            <table>
-                                <colgroup>
-                                    <col width="150px" />
-                                    <col />
-                                </colgroup>
-
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                상태
-                                            </span>
-                                        </th>
-                                        <td>
-                                            <SelectBasic
-                                                size="m"
-                                                placeholder="선택하세요"
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span>주차장종류</span>
-                                        </th>
-                                        <td>
-                                            <SelectBasic
-                                                size="m"
-                                                placeholder="50개씩 보기"
-                                                className="선택하세요"
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                주차장
-                                            </span>
-                                        </th>
-                                        <td>
-                                            <div className="flex items-stretch items-center gap-2">
-                                                <Input
-                                                    className="grow readOnly"
-                                                    readOnly
-                                                />
-                                                <Button type="outline" size="m">
-                                                    조회
-                                                </Button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span>파트너명</span>
-                                        </th>
-                                        <td>
-                                            주차장을 등록하면 자동입력 됩니다.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                기기ID(DEUI)
-                                            </span>
-                                        </th>
-                                        <td>
-                                            <div className="flex gap-4">
-                                                <Input className="grow" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                시리얼번호
-                                            </span>
-                                        </th>
-                                        <td>
-                                            <div className="flex gap-4">
-                                                <Input className="grow" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>운영방식</th>
-                                        <td>
-                                            <div className="flex gap-4">
-                                                <Input className="grow" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>통신 개통여부</th>
-                                        <td>
-                                            <div className="flex gap-4">
-                                                <Radio
-                                                    name="f1"
-                                                    label="개통"
-                                                    defaultChecked
-                                                />
-                                                <Radio
-                                                    name="f1"
-                                                    label="미개통"
-                                                />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span>관리자메모</span>
-                                        </th>
-                                        <td>
-                                            <div className="flex items-stretch items-center gap-2">
-                                                <Text className="h-16 w-full" />
-                                                <Button
-                                                    type="gray"
-                                                    className="h-auto"
-                                                >
-                                                    확인
-                                                </Button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="table-basic mt-5">
-                            <table>
-                                <colgroup>
-                                    <col width="150px" />
-                                    <col />
-                                    <col width="150px" />
-                                    <col />
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <span>등록자</span>
-                                        </th>
-                                        <td>김파프&#40;amdinid&#41;</td>
-                                        <th>
-                                            <span>등록일시</span>
-                                        </th>
-                                        <td>yyyy-mm-dd 00:00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </Drawer>
+            {/* 등록 Drawer */}
+            <Regist
+                key="regist-drawer"
+                isOpen={isDrawerOpen && drawerType === "regist"}
+                onClose={handleClose}
+            />
+            {/* 상세 Drawer */}
+            <Detail
+                key="detail-drawer"
+                isOpen={isDrawerOpen && drawerType === "detail"}
+                onClose={handleClose}
+            />
         </div>
     );
 };
