@@ -61,14 +61,7 @@ html:has(.drawer-toggle:checked) {
 }
 
 /*** modal dim scroll area ***/
-:root:has(
-    :is(
-        .modal-open,
-        .modal:target,
-        .modal-toggle:checked + .modal,
-        .modal[open]
-      )
-  ) {
+:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
   scrollbar-gutter: auto;
 }
 
@@ -112,8 +105,9 @@ html:has(.drawer-toggle:checked) {
   color: #7b808a;
   font-size: rem(14);
   font-weight: 500;
-  line-height: rem(22);
+  line-height: 1;
   text-align: center;
+  padding: rem(12);
   &::before {
     content: url("@/assets/icons/ico_exclam_2.svg");
   }

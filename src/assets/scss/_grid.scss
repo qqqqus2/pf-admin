@@ -152,11 +152,19 @@ $sizes: 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
 /*** Table Memo ***/
 .table-memo {
   padding: rem(20) 0;
+  background-color: #f6f8ff;
   border-bottom: 1px solid #e2e8f0;
   font-size: rem(16);
   line-height: rem(24);
   table {
     width: 100%;
+    tbody {
+      &.no-memo {
+        td {
+          text-align: center;
+        }
+      }
+    }
     th {
       height: rem(50);
       padding: rem(14) rem(16);

@@ -57,6 +57,10 @@ export const pubRouter = [
     title: "_문의관리>공유신청관리>리스트(BO061001) - hiuxc작업",
   },
   {
+    path: "/pub/page/qnaMgt/regist",
+    title: "_문의관리>공유신청관리>조회/상세(BO061002) - hiuxc작업",
+  },
+  {
     path: "/pub/page/oneononeMgt/list",
     title: "_문의관리>1:1문의관리>리스트(BO062001) - hiuxc작업",
   },
