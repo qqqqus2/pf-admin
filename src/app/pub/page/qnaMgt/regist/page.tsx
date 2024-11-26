@@ -187,7 +187,7 @@ export default function VoucherMgtList() {
                     <div className="flex items-center gap-3">
                       <p>$서울시 강남구 학동로82길 14-1$ $고객이 작성한 상세위치 설명 표기$</p>
                       <button type="button" className="w-8 h-8">
-                        <IcSnb11 />
+                        <IcMap />
                       </button>
                     </div>
                   </td>
