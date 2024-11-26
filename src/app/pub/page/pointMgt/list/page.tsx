@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import DefaultLayout from "@pub/layout/DefaultLayout";
 import Topbar from "@pub/components/Topbar";
 import Button from "@pub/components/Button";
@@ -10,7 +12,14 @@ import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
 
+import PersonalInfo from "../RequestInfo";
+
 export default function PointMgtList() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    };
     return (
         <DefaultLayout>
             <Topbar
@@ -409,7 +418,17 @@ export default function PointMgtList() {
                                     <td>yyyy-mm-dd 00:00</td>
                                     <td colSpan={4}>10,500p</td>
                                     <td>구매포인트</td>
-                                    <td>구매적립</td>
+                                    <td>
+                                        <a
+                                            href="#"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setIsModalOpen(true);
+                                            }}
+                                        >
+                                            현대백화점상품권 전환
+                                        </a>
+                                    </td>
                                     <td>-</td>
                                     <td>yyyy-mm-dd 00:00 ~ yyyy-mm-dd 00:00</td>
                                     <td>system</td>
@@ -430,6 +449,8 @@ export default function PointMgtList() {
                     </div>
                 </div>
             </div>
+            {/* 신청정보 팝업 */}
+            <PersonalInfo isOpen={isModalOpen} onClose={handleModalClose} />
         </DefaultLayout>
     );
 }

@@ -209,22 +209,24 @@ export default function CouponMgtList() {
                         </table>
                     </div>
                     <div className="grid grid-cols-4 items-center mt-6">
-                        <Button
-                            type="blue"
-                            size="m"
-                            className="justify-self-start"
-                        >
-                            등록
-                        </Button>
                         <Paging className="col-start-2 col-span-2" />
-                        <Button
-                            type="outline"
-                            size="m"
-                            className="justify-self-end"
-                        >
-                            <IcExcel />
-                            엑셀다운로드
-                        </Button>
+                        <div className="flex ml-auto items-center gap-3">
+                            <Button
+                                type="outline"
+                                size="m"
+                                className="justify-self-end"
+                            >
+                                <IcExcel />
+                                엑셀다운로드
+                            </Button>
+                            <Button
+                                type="black"
+                                size="m"
+                                className="justify-self-start"
+                            >
+                                등록
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
