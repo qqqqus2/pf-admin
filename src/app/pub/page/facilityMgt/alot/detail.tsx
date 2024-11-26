@@ -120,7 +120,6 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                     <Radio
                                                         name="operation"
                                                         label="구획"
-                                                        defaultChecked
                                                         onChange={() => handleOperationChange("구획")}
                                                     />
                                                     <Input className="grow" disabled={selectedOperation !== "구획"} />

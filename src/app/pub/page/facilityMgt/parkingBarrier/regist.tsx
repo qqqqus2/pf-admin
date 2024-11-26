@@ -102,7 +102,7 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">기기ID(DEUI)</span>
+                                            <span>기기ID(DEUI)</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">NNNNNNNN</div>
@@ -110,7 +110,7 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">업체명</span>
+                                            <span>업체명</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">

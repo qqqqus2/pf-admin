@@ -119,7 +119,6 @@ const AIotRegistDrawer = ({ isOpen, onClose }) => {
                                                     <Radio
                                                         name="operation-1"
                                                         label="구획"
-                                                        defaultChecked
                                                         onChange={() => handleOperationChange("구획")}
                                                     />
                                                     <Input className="grow" />

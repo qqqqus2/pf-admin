@@ -85,7 +85,7 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">기기ID(DEUI)</span>
+                                            <span>기기ID(DEUI)</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">NNNNNNNN</div>
@@ -93,7 +93,7 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">업체명</span>
+                                            <span>업체명</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
@@ -140,7 +140,7 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                             <div className="flex items-stretch items-center gap-2 w-full">
                                                 <Input className="grow readOnly" readOnly />
                                                 <Button type="gray" size="m">
-                                                    URL 생성
+                                                    URL 복사
                                                 </Button>
                                             </div>
                                         </td>
@@ -235,6 +235,22 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                 </tbody>
                             </table>
                         </div>
+                        <div className="table-memo">
+                            <table>
+                                <colgroup>
+                                    <col width="212px" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th>관리자명&#40;아이디&#41; / 소속</th>
+                                        <td>
+                                            회원문의 3회 이상 욕설과 강성요청 고객으로 블랙리스트 적용합니다. 2024-01-01
+                                            00:00
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <div className="table-basic mt-5">
                             <table>
                                 <colgroup>
@@ -251,6 +267,16 @@ const ParkingBarrierRegist = ({ isOpen, onClose }) => {
                                         <td>김파프&#40;amdinid&#41;</td>
                                         <th>
                                             <span>등록일시</span>
+                                        </th>
+                                        <td>yyyy-mm-dd 00:00</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <span>최종수정자</span>
+                                        </th>
+                                        <td>홍길동&#40;admin_hong&#41;</td>
+                                        <th>
+                                            <span>최종수정일시</span>
                                         </th>
                                         <td>yyyy-mm-dd 00:00</td>
                                     </tr>

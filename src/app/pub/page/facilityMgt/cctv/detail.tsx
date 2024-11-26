@@ -81,7 +81,7 @@ const CCTVDetailDrawer = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">기기ID(DEUI)</span>
+                                            <span>기기ID(DEUI)</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
@@ -91,7 +91,7 @@ const CCTVDetailDrawer = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">시리얼번호</span>
+                                            <span>시리얼번호</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
@@ -107,7 +107,6 @@ const CCTVDetailDrawer = ({ isOpen, onClose }) => {
                                                     <Radio
                                                         name="operation"
                                                         label="구획"
-                                                        defaultChecked
                                                         onChange={() => handleOperationChange("구획")}
                                                     />
                                                     <Input className="grow" disabled={selectedOperation !== "구획"} />
