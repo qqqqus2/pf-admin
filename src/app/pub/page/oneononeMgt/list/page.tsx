@@ -12,35 +12,29 @@ import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
 import Flag from "@pub/components/Flag";
-import Drawer from "@pub/components/Drawer";
-import Text from "@pub/components/Form/Text";
 
 import IcInfo from "@/assets/icons/ico_circle_info.svg";
 
-//등록 레이어팝업
-// import { useState } from "react";
-// import RegistePop from "../regist/RegistePop";
+import OneononeSimpleSearch from "./oneononeSimpleSearch";
 
-export default function VoucherMgtList() {
+export default function oneononeMgtList() {
   // Drawer 상태 관리
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerType, setDrawerType] = useState(null);
 
-  // Drawer 닫기 핸들러
-  const handleDrawerClose = (prevState: boolean) => {
-    setIsDrawerOpen(prevState);
+  // 조회 drawer
+  const openSearchDrawer = () => {
+    setDrawerType("search");
+    setIsDrawerOpen(true);
   };
-  const drawerButtons = [
-    {
-      type: "black",
-      icon: false,
-      label: "저장",
-    },
-    {
-      type: "outline",
-      icon: false,
-      label: "취소",
-    },
-  ];
+
+  const handleClose = () => {
+    setIsDrawerOpen(false);
+    setTimeout(() => {
+      setDrawerType(null);
+    }, 300);
+  };
+
   return (
     <DefaultLayout>
       <Topbar
@@ -187,7 +181,7 @@ export default function VoucherMgtList() {
                 <tr>
                   <td>10</td>
                   <td>
-                    <button type="button" className="flex items-center gap-1">
+                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
                       <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
@@ -215,7 +209,7 @@ export default function VoucherMgtList() {
                 <tr className="bg-cell-red">
                   <td>10</td>
                   <td>
-                    <button type="button" className="flex items-center gap-1">
+                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
                       <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
@@ -238,7 +232,7 @@ export default function VoucherMgtList() {
                 <tr className="bg-[#F4F5F8]">
                   <td>10</td>
                   <td>
-                    <button type="button" className="flex items-center gap-1">
+                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
                       <span className="underline text-green">Q12345678</span>
                     </button>
                   </td>
@@ -271,6 +265,11 @@ export default function VoucherMgtList() {
             </div>
           </div>
         </div>
+        <OneononeSimpleSearch
+          key="search-drawer"
+          isOpen={isDrawerOpen && drawerType === "search"}
+          onClose={handleClose}
+        />
       </div>
     </DefaultLayout>
   );

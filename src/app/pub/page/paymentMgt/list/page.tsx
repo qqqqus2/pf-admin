@@ -3,46 +3,17 @@ import React, { useEffect, useState } from "react";
 import DefaultLayout from "@pub/layout/DefaultLayout";
 import Topbar from "@pub/components/Topbar";
 import Button from "@pub/components/Button";
-import ButtonGroup from "@pub/components/Button/Group2";
 import Radio from "@pub/components/Form/Radio";
-import Checkbox from "@pub/components/Form/Check";
 import Input from "@pub/components/Form/Input";
-import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDate from "@pub/components/Form/Date";
 import FormTime from "@pub/components/Form/Time";
-import IcExcel from "@/assets/icons/ico_excel.svg";
-import Flag from "@pub/components/Flag";
-import Drawer from "@pub/components/Drawer";
-import Text from "@pub/components/Form/Text";
-
-import IcInfo from "@/assets/icons/ico_circle_info.svg";
 
 //등록 레이어팝업
 // import { useState } from "react";
 // import RegistePop from "../regist/RegistePop";
 
 export default function VoucherMgtList() {
-  // Drawer 상태 관리
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  // Drawer 닫기 핸들러
-  const handleDrawerClose = (prevState: boolean) => {
-    setIsDrawerOpen(prevState);
-  };
-  const drawerButtons = [
-    {
-      type: "black",
-      icon: false,
-      label: "저장",
-    },
-    {
-      type: "outline",
-      icon: false,
-      label: "취소",
-    },
-  ];
-
   const [showDefault, setShowDefault] = useState(true);
   const [showElement1, setShowElement1] = useState(false);
   const [showElement2, setShowElement2] = useState(false);

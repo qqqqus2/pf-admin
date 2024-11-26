@@ -65,8 +65,20 @@ export const pubRouter = [
     title: "_문의관리>1:1문의관리>리스트(BO062001) - hiuxc작업",
   },
   {
+    path: "/pub/page/oneononeMgt/regist",
+    title: "_문의관리>1:1문의관리>조회/상세(BO062002){답변 전} - hiuxc작업",
+  },
+  {
+    path: "/pub/page/oneononeMgt/regist?case1=true",
+    title: "_문의관리>1:1문의관리>조회/상세(BO062003){답변 후} - hiuxc작업",
+  },
+  {
     path: "/pub/page/reportMgt/list",
     title: "_문의관리>제보관리>리스트(BO064001) - hiuxc작업",
+  },
+  {
+    path: "/pub/page/reportMgt/regist",
+    title: "_문의관리>제보관리>조회/상세(BO064002) - hiuxc작업",
   },
   {
     path: "/pub/page/paymentMgt/list",
