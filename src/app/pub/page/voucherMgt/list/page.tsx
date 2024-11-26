@@ -11,33 +11,32 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
-import Drawer from "@pub/components/Drawer";
-import Text from "@pub/components/Form/Text";
 
-//등록 레이어팝업
-// import { useState } from "react";
-// import RegistePop from "../regist/RegistePop";
+import Regist from "../regist";
+import Detail from "../detail";
 
 export default function VoucherMgtList() {
-    // Drawer 상태 관리
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [drawerType, setDrawerType] = useState(null);
 
-    // Drawer 닫기 핸들러
-    const handleDrawerClose = (prevState: boolean) => {
-        setIsDrawerOpen(prevState);
+    const handleClose = () => {
+        setIsDrawerOpen(false);
+        setTimeout(() => {
+            setDrawerType(null);
+        }, 300);
     };
-    const drawerButtons = [
-        {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
-            type: "outline",
-            icon: false,
-            label: "취소",
-        },
-    ];
+
+    // 등록 drawer
+    const openRegistDrawer = () => {
+        setDrawerType("regist");
+        setIsDrawerOpen(true);
+    };
+
+    // 상세 drawer
+    const openDetailDrawer = () => {
+        setDrawerType("detail");
+        setIsDrawerOpen(true);
+    };
     return (
         <DefaultLayout>
             <Topbar
@@ -145,7 +144,17 @@ export default function VoucherMgtList() {
                             <tbody>
                                 <tr>
                                     <td>10</td>
-                                    <td>NNNNN</td>
+                                    <td>
+                                        <a
+                                            href="#"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                openDetailDrawer();
+                                            }}
+                                        >
+                                            NNNNN
+                                        </a>
+                                    </td>
                                     <td>사용</td>
                                     <td>주차상품권 1만원권</td>
                                     <td>스마트스토어</td>
@@ -162,7 +171,17 @@ export default function VoucherMgtList() {
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td>NNNNN</td>
+                                    <td>
+                                        <a
+                                            href="#"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                openDetailDrawer();
+                                            }}
+                                        >
+                                            NNNNN
+                                        </a>
+                                    </td>
                                     <td>사용</td>
                                     <td>주차상품권 1만원권</td>
                                     <td>카카오쇼핑</td>
@@ -196,183 +215,26 @@ export default function VoucherMgtList() {
                                 type="black"
                                 size="m"
                                 className="justify-self-start"
-                                onClick={() => setIsDrawerOpen(true)}
+                                onClick={openRegistDrawer}
                             >
                                 등록
                             </Button>
                         </div>
                     </div>
                 </div>
+                {/* 등록 Drawer */}
+                <Regist
+                    key="regist-drawer"
+                    isOpen={isDrawerOpen && drawerType === "regist"}
+                    onClose={handleClose}
+                />
+                {/* 상세 Drawer */}
+                <Detail
+                    key="detail-drawer"
+                    isOpen={isDrawerOpen && drawerType === "detail"}
+                    onClose={handleClose}
+                />
             </div>
-
-            <Drawer
-                id="voucher-regist-drawer"
-                open={isDrawerOpen}
-                handleClose={handleDrawerClose}
-                title="상품권 등록"
-                // desc="포인트상품권 정보를 등록할 수 있습니다."
-                btns={drawerButtons}
-            >
-                <div>
-                    {/* Drawer 내부 컨텐츠 */}
-                    <div className="h-[calc(100%-140px)] overflow-y-auto">
-                        <div className="table-basic">
-                            <table>
-                                <colgroup>
-                                    <col width="150px" />
-                                    <col />
-                                    <col width="150px" />
-                                    <col />
-                                </colgroup>
-
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <span>상품권번호</span>
-                                        </th>
-                                        <td>NNNNNN</td>
-                                        <th>
-                                            <span>사용여부</span>
-                                        </th>
-                                        <td>
-                                            <div className="flex gap-6">
-                                                <Radio name="f1" label="사용" />
-                                                <Radio
-                                                    name="f1"
-                                                    label="사용안함"
-                                                />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                상품권명
-                                            </span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <Input className="grow" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                상품권금액
-                                            </span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />{" "}
-                                                원
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                판매기간
-                                            </span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <div className="flex gap-4">
-                                                <FormDateRange />
-                                                <Checkbox label="무제한" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                유효기간
-                                            </span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <div className="inline-flex items-center gap-2">
-                                                상품권등록일로부터
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />
-                                                일 &#40;최대 3년 &#41;
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span className="text-req">
-                                                발급수량
-                                            </span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />
-                                                매
-                                            </div>
-                                            <div className="list-common mt-2">
-                                                <ul>
-                                                    <li>
-                                                        난수발급 이후에는 정보
-                                                        수정을 할 수 없습니다.
-                                                    </li>
-                                                    <li>
-                                                        상품권변경을 하시려면
-                                                        신규로 등록해주시기
-                                                        바랍니다.
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <span>관리자메모</span>
-                                        </th>
-                                        <td colSpan={3}>
-                                            <div className="flex items-stretch items-center gap-2">
-                                                <Text className="h-16 w-full" />
-                                                <Button
-                                                    type="gray"
-                                                    className="h-auto"
-                                                >
-                                                    확인
-                                                </Button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="table-basic mt-5">
-                            <table>
-                                <colgroup>
-                                    <col width="150px" />
-                                    <col />
-                                    <col width="150px" />
-                                    <col />
-                                </colgroup>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            <span>등록자</span>
-                                        </th>
-                                        <td>김파프&#40;amdinid&#41;</td>
-                                        <th>
-                                            <span>등록일시</span>
-                                        </th>
-                                        <td>yyyy-mm-dd 00:00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </Drawer>
         </DefaultLayout>
     );
 }
