@@ -11,26 +11,8 @@ import IcExcel from "@/assets/icons/ico_excel.svg";
 import Modal from "@pub/components/Modal";
 
 const searchParkingZone = ({ isOpen, onClose }) => {
-    const modalButtons = [
-        {
-            type: "black",
-            icon: false,
-            label: "취소",
-        },
-        {
-            type: "green",
-            icon: false,
-            label: "확인",
-        },
-    ];
     return (
-        <Modal
-            open={isOpen}
-            handleClose={onClose}
-            title="주차장 조회"
-            size="l"
-            btns={modalButtons}
-        >
+        <Modal open={isOpen} handleClose={onClose} title="주차장 조회" size="l">
             <div className="max-h-[calc(100vh-13rem)] overflow-y-auto">
                 <div className="search-box">
                     <div className="table-basic mt-4">
@@ -46,17 +28,11 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                                 <tr>
                                     <th>상태</th>
                                     <td>
-                                        <SelectBasic
-                                            size="m"
-                                            placeholder="전체"
-                                        />
+                                        <SelectBasic size="m" placeholder="전체" />
                                     </td>
                                     <th>종류</th>
                                     <td>
-                                        <SelectBasic
-                                            size="m"
-                                            placeholder="전체"
-                                        />
+                                        <SelectBasic size="m" placeholder="전체" />
                                     </td>
                                 </tr>
 
@@ -64,15 +40,8 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                                     <th>파트너</th>
                                     <td colSpan={3}>
                                         <div className="flex gap-4">
-                                            <SelectBasic
-                                                size="m"
-                                                placeholder="대분류를 선택하세요"
-                                            />
-                                            <SelectBasic
-                                                size="m"
-                                                disabled
-                                                placeholder="소분류를 선택하세요"
-                                            />
+                                            <SelectBasic size="m" placeholder="대분류를 선택하세요" />
+                                            <SelectBasic size="m" disabled placeholder="소분류를 선택하세요" />
                                         </div>
                                     </td>
                                 </tr>
@@ -88,10 +57,7 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                                     <th>기간</th>
                                     <td colSpan={3}>
                                         <div className="flex flex-wrap gap-2">
-                                            <SelectBasic
-                                                size="s"
-                                                placeholder="전체"
-                                            />
+                                            <SelectBasic size="s" placeholder="전체" />
                                             <FormDateRange />
                                             <ButtonGroup />
                                         </div>
@@ -112,11 +78,7 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                         <p className="h4">
                             총 <span className="text-green">231</span>건
                         </p>
-                        <SelectBasic
-                            size="m"
-                            placeholder="50개씩 보기"
-                            className="ml-auto"
-                        />
+                        <SelectBasic size="m" placeholder="50개씩 보기" className="ml-auto" />
                     </div>
                     <div className="table-grid mt-4">
                         <table>
@@ -192,6 +154,14 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                         <Paging className="col-start-2 col-span-2" />
                     </div>
                 </div>
+            </div>
+            <div className="flex items-center gap-3 justify-center mt-8">
+                <Button type="black" size="m">
+                    취소
+                </Button>
+                <Button type="green" size="m">
+                    확인
+                </Button>
             </div>
         </Modal>
     );

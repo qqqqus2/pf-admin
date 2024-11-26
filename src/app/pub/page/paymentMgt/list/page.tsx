@@ -9,10 +9,6 @@ import SelectBasic from "@pub/components/Form/Select";
 import FormDate from "@pub/components/Form/Date";
 import FormTime from "@pub/components/Form/Time";
 
-//등록 레이어팝업
-// import { useState } from "react";
-// import RegistePop from "../regist/RegistePop";
-
 export default function VoucherMgtList() {
   const [showDefault, setShowDefault] = useState(true);
   const [showElement1, setShowElement1] = useState(false);

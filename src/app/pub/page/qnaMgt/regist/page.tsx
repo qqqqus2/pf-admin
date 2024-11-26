@@ -160,7 +160,7 @@ export default function VoucherMgtList() {
               </colgroup>
               <tbody>
                 <tr>
-                  <th className="bg-h-green">신청한 회원</th>
+                  <th className="bg-h-green ">신청한 회원</th>
                   <td colSpan={3}>
                     <button type="button">
                       <span className="underline">홍길동(010-1234-5678)</span>
@@ -187,7 +187,7 @@ export default function VoucherMgtList() {
                     <div className="flex items-center gap-3">
                       <p>$서울시 강남구 학동로82길 14-1$ $고객이 작성한 상세위치 설명 표기$</p>
                       <button type="button" className="w-8 h-8">
-                        <IcMap />
+                        <IcSnb11 />
                       </button>
                     </div>
                   </td>
@@ -284,13 +284,10 @@ export default function VoucherMgtList() {
             저장
           </Button>
         </div>
-        <Modal open={isModalOpen} handleClose={closeModal} size="s" title="링크">
-          <div className="mt-4 mb-8">
-            <InputSearch placeholder="링크할 접수번호를 입력하세요." onInput={checkValid} />
-            {isValid && <p className="text-red text-sm mt-2">링크 가능합니다.</p>}
-          </div>
-
-          <div className="flex items-center gap-3">
+        <Modal open={isModalOpen} handleClose={closeModal} size="s">
+          <p className="h4 mb-4">링크</p>
+          <InputSearch placeholder="링크할 접수번호를 입력하세요." />
+          <div className="flex items-center gap-3 mt-8">
             <Button type="gray" size="l" className="flex-1">
               취소
             </Button>
