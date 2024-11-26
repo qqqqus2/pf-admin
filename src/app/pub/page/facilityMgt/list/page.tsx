@@ -15,14 +15,14 @@ import { EtcEquipmentTab } from "@pub/page/facilityMgt/etcEquipment/tab";
 export default function AIotList() {
     const drawerButtons = [
         {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
             type: "outline",
             icon: false,
             label: "취소",
+        },
+        {
+            type: "black",
+            icon: false,
+            label: "저장",
         },
     ];
     return (
@@ -53,13 +53,13 @@ export default function AIotList() {
                             <CCTVTab />
                         </TabPanel>
                         <TabPanel>
+                            <ParkingBarrierTab />
+                        </TabPanel>
+                        <TabPanel>
                             <KioskTab />
                         </TabPanel>
                         <TabPanel>
                             <NoticeBoardTab />
-                        </TabPanel>
-                        <TabPanel>
-                            <ParkingBarrierTab />
                         </TabPanel>
                         <TabPanel>
                             <EtcEquipmentTab />

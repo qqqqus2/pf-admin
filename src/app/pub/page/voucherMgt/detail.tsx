@@ -21,14 +21,14 @@ const VoucherMgtDetail = ({ isOpen, onClose }) => {
 
     const drawerButtons = [
         {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
             type: "outline",
             icon: false,
             label: "취소",
+        },
+        {
+            type: "black",
+            icon: false,
+            label: "저장",
         },
     ];
 
@@ -65,62 +65,42 @@ const VoucherMgtDetail = ({ isOpen, onClose }) => {
                                         <td>
                                             <div className="flex gap-6">
                                                 <Radio name="f1" label="사용" />
-                                                <Radio
-                                                    name="f1"
-                                                    label="사용안함"
-                                                />
+                                                <Radio name="f1" label="사용안함" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                판매처
-                                            </span>
+                                            <span className="text-req">판매처</span>
                                         </th>
                                         <td colSpan={3}>
-                                            <Radio
-                                                name="f1"
-                                                label="스마트스토어"
-                                            />
-                                            <Radio name="f1" label="카카오톡" />
+                                            <div className="flex gap-6">
+                                                <Radio name="f2" label="스마트스토어" />
+                                                <Radio name="f2" label="카카오톡" />
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                상품권명
-                                            </span>
+                                            <span className="text-req">상품권명</span>
                                         </th>
                                         <td colSpan={3}>
-                                            <Input
-                                                className="grow"
-                                                value="주차상품권 1만원권"
-                                            />
+                                            <Input className="grow" value="주차상품권 1만원권" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                상품권금액
-                                            </span>
+                                            <span className="text-req">상품권금액</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                    value="10,000원"
-                                                />{" "}
-                                                원
+                                                <Input size="m" className="grow" value="10,000원" /> 원
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                판매기간
-                                            </span>
+                                            <span className="text-req">판매기간</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="flex gap-4">
@@ -135,48 +115,27 @@ const VoucherMgtDetail = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                유효기간
-                                            </span>
+                                            <span className="text-req">유효기간</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
                                                 상품권등록일로부터
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                    value="365"
-                                                />
-                                                일 &#40;최대 3년 &#41;
+                                                <Input size="m" className="grow" value="365" />일 &#40;최대 3년 &#41;
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                발급수량
-                                            </span>
+                                            <span className="text-req">발급수량</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                    value="365"
-                                                />
-                                                매
+                                                <Input size="m" className="grow" value="365" />매
                                             </div>
                                             <div className="list-common mt-2">
                                                 <ul>
-                                                    <li>
-                                                        난수발급 이후에는 정보
-                                                        수정을 할 수 없습니다.
-                                                    </li>
-                                                    <li>
-                                                        상품권변경을 하시려면
-                                                        신규로 등록해주시기
-                                                        바랍니다.
-                                                    </li>
+                                                    <li>난수발급 이후에는 정보 수정을 할 수 없습니다.</li>
+                                                    <li>상품권변경을 하시려면 신규로 등록해주시기 바랍니다.</li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -188,10 +147,7 @@ const VoucherMgtDetail = ({ isOpen, onClose }) => {
                                         <td colSpan={3}>
                                             <div className="flex items-stretch items-center gap-2">
                                                 <Text className="h-16 w-full" />
-                                                <Button
-                                                    type="gray"
-                                                    className="h-auto"
-                                                >
+                                                <Button type="gray" className="h-auto">
                                                     확인
                                                 </Button>
                                             </div>
@@ -199,6 +155,23 @@ const VoucherMgtDetail = ({ isOpen, onClose }) => {
                                     </tr>
                                 </tbody>
                             </table>
+                            <div className="table-memo">
+                                <table>
+                                    <colgroup>
+                                        <col width="212px" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>관리자명&#40;아이디&#41; / 소속</th>
+                                            <td>
+                                                회원문의 3회 이상 욕설과 강성요청 고객으로 블랙리스트 적용합니다.
+                                                회원문의 3회 이상 욕설과 강성요청 고객으로 블랙리스트 적용합니다.
+                                                2024-01-01 00:00
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div className="table-basic mt-5">
                             <table>

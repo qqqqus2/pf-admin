@@ -21,14 +21,14 @@ const VoucherMgtRegist = ({ isOpen, onClose }) => {
 
     const drawerButtons = [
         {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
             type: "outline",
             icon: false,
             label: "취소",
+        },
+        {
+            type: "black",
+            icon: false,
+            label: "저장",
         },
     ];
 
@@ -65,18 +65,13 @@ const VoucherMgtRegist = ({ isOpen, onClose }) => {
                                         <td>
                                             <div className="flex gap-6">
                                                 <Radio name="f1" label="사용" />
-                                                <Radio
-                                                    name="f1"
-                                                    label="사용안함"
-                                                />
+                                                <Radio name="f1" label="사용안함" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                상품권명
-                                            </span>
+                                            <span className="text-req">상품권명</span>
                                         </th>
                                         <td colSpan={3}>
                                             <Input className="grow" />
@@ -84,25 +79,17 @@ const VoucherMgtRegist = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                상품권금액
-                                            </span>
+                                            <span className="text-req">상품권금액</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />{" "}
-                                                원
+                                                <Input size="m" className="grow" /> 원
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                판매기간
-                                            </span>
+                                            <span className="text-req">판매기간</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="flex gap-4 items-center">
@@ -112,54 +99,32 @@ const VoucherMgtRegist = ({ isOpen, onClose }) => {
                                                 <FormDate size="m" disabled />
                                                 <FormTime size="s" disabled />
                                             </div>
-                                            <Checkbox
-                                                label="무제한"
-                                                className="mt-2"
-                                            />
+                                            <Checkbox label="무제한" className="mt-2" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                유효기간
-                                            </span>
+                                            <span className="text-req">유효기간</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
                                                 상품권등록일로부터
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />
-                                                일 &#40;최대 3년 &#41;
+                                                <Input size="m" className="grow" />일 &#40;최대 3년 &#41;
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                발급수량
-                                            </span>
+                                            <span className="text-req">발급수량</span>
                                         </th>
                                         <td colSpan={3}>
                                             <div className="inline-flex items-center gap-2">
-                                                <Input
-                                                    size="m"
-                                                    className="grow"
-                                                />
-                                                매
+                                                <Input size="m" className="grow" />매
                                             </div>
                                             <div className="list-common mt-2">
                                                 <ul>
-                                                    <li>
-                                                        난수발급 이후에는 정보
-                                                        수정을 할 수 없습니다.
-                                                    </li>
-                                                    <li>
-                                                        상품권변경을 하시려면
-                                                        신규로 등록해주시기
-                                                        바랍니다.
-                                                    </li>
+                                                    <li>난수발급 이후에는 정보 수정을 할 수 없습니다.</li>
+                                                    <li>상품권변경을 하시려면 신규로 등록해주시기 바랍니다.</li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -171,10 +136,7 @@ const VoucherMgtRegist = ({ isOpen, onClose }) => {
                                         <td colSpan={3}>
                                             <div className="flex items-stretch items-center gap-2">
                                                 <Text className="h-16 w-full" />
-                                                <Button
-                                                    type="gray"
-                                                    className="h-auto"
-                                                >
+                                                <Button type="gray" className="h-auto">
                                                     확인
                                                 </Button>
                                             </div>

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Button from "@pub/components/Button";
 import ButtonGroup from "@pub/components/Button/Group2";
-import Radio from "@pub/components/Form/Radio";
 import Checkbox from "@pub/components/Form/Check";
 import Input from "@pub/components/Form/Input";
 import Paging from "@pub/components/Grid/Paging";
@@ -63,10 +62,7 @@ export const CCTVTab = () => {
                         <p className="inline-flex items-center gap-2">검색어</p>
                         <div className="inline-flex items-center gap-2">
                             <SelectBasic size="m" placeholder="전체" />
-                            <Input
-                                placeholder="검색어를 입력하세요."
-                                className="grow"
-                            />
+                            <Input placeholder="검색어를 입력하세요." className="grow" />
                         </div>
                     </li>
                     <li className="col-span-2">
@@ -93,19 +89,11 @@ export const CCTVTab = () => {
                     </div>
 
                     <div className="ml-auto flex flex-wrap items-center gap-3">
-                        <Button
-                            type="outline"
-                            size="s"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="s" className="justify-self-end">
                             <IcExcel />
                             양식다운로드
                         </Button>
-                        <Button
-                            type="outline"
-                            size="s"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="s" className="justify-self-end">
                             <IcExcel />
                             일괄등록
                         </Button>
@@ -180,11 +168,7 @@ export const CCTVTab = () => {
                                 </td>
                                 <td>강남 스마트공유 CCTV 01</td>
                                 <td>
-                                    <Button
-                                        type="outline"
-                                        size="s"
-                                        onClick={() => setIsModalOpen(true)}
-                                    >
+                                    <Button type="outline" size="s" onClick={() => setIsModalOpen(true)}>
                                         조회
                                     </Button>
                                 </td>
@@ -223,11 +207,7 @@ export const CCTVTab = () => {
                                 </td>
                                 <td>강남 스마트공유 CCTV 01</td>
                                 <td>
-                                    <Button
-                                        type="outline"
-                                        size="s"
-                                        onClick={() => setIsModalOpen(true)}
-                                    >
+                                    <Button type="outline" size="s" onClick={() => setIsModalOpen(true)}>
                                         조회
                                     </Button>
                                 </td>
@@ -240,46 +220,25 @@ export const CCTVTab = () => {
                     </table>
                 </div>
                 <div className="grid grid-cols-4 items-center mt-6">
-                    <Button
-                        type="outline"
-                        size="m"
-                        className="justify-self-start"
-                    >
+                    <Button type="outline" size="m" className="justify-self-start">
                         선택삭제
                     </Button>
                     <Paging className="col-start-2 col-span-2" />
                     <div className="flex ml-auto items-center gap-3">
-                        <Button
-                            type="outline"
-                            size="m"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="m" className="justify-self-end">
                             <IcExcel />
                             엑셀다운로드
                         </Button>
-                        <Button
-                            type="black"
-                            size="m"
-                            className="justify-self-start"
-                            onClick={openRegistDrawer}
-                        >
+                        <Button type="black" size="m" className="justify-self-start" onClick={openRegistDrawer}>
                             등록
                         </Button>
                     </div>
                 </div>
             </div>
             {/* 등록 Drawer */}
-            <Regist
-                key="regist-drawer"
-                isOpen={isDrawerOpen && drawerType === "regist"}
-                onClose={handleClose}
-            />
+            <Regist key="regist-drawer" isOpen={isDrawerOpen && drawerType === "regist"} onClose={handleClose} />
             {/* 상세 Drawer */}
-            <Detail
-                key="detail-drawer"
-                isOpen={isDrawerOpen && drawerType === "detail"}
-                onClose={handleClose}
-            />
+            <Detail key="detail-drawer" isOpen={isDrawerOpen && drawerType === "detail"} onClose={handleClose} />
 
             {/* CCTV 실시간 조회 팝업 */}
             <CCTVSearch isOpen={isModalOpen} onClose={handleModalClose} />

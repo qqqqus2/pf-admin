@@ -8,7 +8,7 @@ import Input from "@pub/components/Form/Input";
 import SelectBasic from "@pub/components/Form/Select";
 import Text from "@pub/components/Form/Text";
 
-// import SearchParkingZone from "./searchParkingZone";
+import SearchParkingZone from "../searchParkingZone";
 
 const CCTVRegistDrawer = ({ isOpen, onClose }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,14 +19,14 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
 
     const drawerButtons = [
         {
-            type: "black",
-            icon: false,
-            label: "저장",
-        },
-        {
             type: "outline",
             icon: false,
             label: "취소",
+        },
+        {
+            type: "black",
+            icon: false,
+            label: "저장",
         },
     ];
 
@@ -38,13 +38,7 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
 
     return (
         <div>
-            <Drawer
-                id="cctv-regist-drawer"
-                open={isOpen}
-                handleClose={onClose}
-                title="CCTV 등록"
-                btns={drawerButtons}
-            >
+            <Drawer id="cctv-regist-drawer" open={isOpen} handleClose={onClose} title="CCTV 등록" btns={drawerButtons}>
                 <div>
                     {/* Drawer 내부 컨텐츠 */}
                     <div className="h-[calc(100%-140px)] overflow-y-auto">
@@ -58,52 +52,35 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                 <tbody>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                상태
-                                            </span>
+                                            <span className="text-req">상태</span>
                                         </th>
                                         <td>
-                                            <SelectBasic
-                                                size="m"
-                                                placeholder="선택하세요"
-                                            />
+                                            <SelectBasic size="m" placeholder="선택하세요" />
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                주차장
-                                            </span>
+                                            <span className="text-req">주차장</span>
                                         </th>
                                         <td>
                                             <div className="flex flex-col gap-2">
                                                 <div className="flex items-stretch items-center gap-2 w-full">
-                                                    <Input
-                                                        className="grow readOnly"
-                                                        readOnly
-                                                    />
+                                                    <Input className="grow readOnly" readOnly />
                                                     <Button
                                                         type="outline"
                                                         size="m"
-                                                        onClick={() =>
-                                                            setIsModalOpen(true)
-                                                        }
+                                                        onClick={() => setIsModalOpen(true)}
                                                     >
                                                         조회
                                                     </Button>
                                                 </div>
                                                 <div className="flex items-stretch items-center gap-2 w-full">
-                                                    <Input
-                                                        className="grow readOnly"
-                                                        readOnly
-                                                    />
+                                                    <Input className="grow readOnly" readOnly />
                                                     <Button
                                                         type="outline"
                                                         size="m"
-                                                        onClick={() =>
-                                                            setIsModalOpen(true)
-                                                        }
+                                                        onClick={() => setIsModalOpen(true)}
                                                     >
                                                         조회
                                                     </Button>
@@ -118,15 +95,11 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                         <th>
                                             <span>파트너명</span>
                                         </th>
-                                        <td>
-                                            주차장을 등록하면 자동입력 됩니다.
-                                        </td>
+                                        <td>주차장을 등록하면 자동입력 됩니다.</td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                기기ID(DEUI)
-                                            </span>
+                                            <span className="text-req">기기ID(DEUI)</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
@@ -136,9 +109,7 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">
-                                                시리얼번호
-                                            </span>
+                                            <span className="text-req">시리얼번호</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
@@ -155,38 +126,18 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                                         name="operation"
                                                         label="구획"
                                                         defaultChecked
-                                                        onChange={() =>
-                                                            handleOperationChange(
-                                                                "구획"
-                                                            )
-                                                        }
+                                                        onChange={() => handleOperationChange("구획")}
                                                     />
-                                                    <Input
-                                                        className="grow"
-                                                        disabled={
-                                                            selectedOperation !==
-                                                            "구획"
-                                                        }
-                                                    />
+                                                    <Input className="grow" disabled={selectedOperation !== "구획"} />
                                                 </div>
 
                                                 <div className="flex gap-2">
                                                     <Radio
                                                         name="operation"
                                                         label="구간"
-                                                        onChange={() =>
-                                                            handleOperationChange(
-                                                                "구간"
-                                                            )
-                                                        }
+                                                        onChange={() => handleOperationChange("구간")}
                                                     />
-                                                    <Input
-                                                        className="grow"
-                                                        disabled={
-                                                            selectedOperation !==
-                                                            "구간"
-                                                        }
-                                                    />
+                                                    <Input className="grow" disabled={selectedOperation !== "구간"} />
                                                 </div>
                                             </div>
                                         </td>
@@ -195,15 +146,8 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                         <th>통신 개통여부</th>
                                         <td>
                                             <div className="flex gap-4">
-                                                <Radio
-                                                    name="f2"
-                                                    label="개통"
-                                                    defaultChecked
-                                                />
-                                                <Radio
-                                                    name="f2"
-                                                    label="미개통"
-                                                />
+                                                <Radio name="f2" label="개통" defaultChecked />
+                                                <Radio name="f2" label="미개통" />
                                             </div>
                                         </td>
                                     </tr>
@@ -214,10 +158,7 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
                                         <td>
                                             <div className="flex items-stretch items-center gap-2">
                                                 <Text className="h-16 w-full" />
-                                                <Button
-                                                    type="gray"
-                                                    className="h-auto"
-                                                >
+                                                <Button type="gray" className="h-auto">
                                                     확인
                                                 </Button>
                                             </div>
@@ -253,10 +194,7 @@ const CCTVRegistDrawer = ({ isOpen, onClose }) => {
             </Drawer>
 
             {/* 주차장 검색 팝업 */}
-            {/* <SearchParkingZone
-                isOpen={isModalOpen}
-                onClose={handleModalClose}
-            /> */}
+            <SearchParkingZone isOpen={isModalOpen} onClose={handleModalClose} />
         </div>
     );
 };

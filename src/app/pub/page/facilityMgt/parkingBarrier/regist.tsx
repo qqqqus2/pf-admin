@@ -3,21 +3,20 @@
 import React, { useState } from "react";
 import Drawer from "@pub/components/Drawer";
 import Button from "@pub/components/Button";
-import Radio from "@pub/components/Form/Radio";
 import Input from "@pub/components/Form/Input";
 import SelectBasic from "@pub/components/Form/Select";
 import Text from "@pub/components/Form/Text";
 import FormDate from "@/app/pub/components/Form/Date";
 
 import SearchParkingZone from "../searchParkingZone";
+import Alert from "@pub/components/Modal/Alert";
 
-const AIotDetailDrawer = ({ isOpen, onClose }) => {
+const ParkingBarrierRegist = ({ isOpen, onClose }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleModalClose = () => {
         setIsModalOpen(false);
     };
-
     const drawerButtons = [
         {
             type: "outline",
@@ -31,19 +30,29 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
         },
     ];
 
-    //라디오 그룹
-    const [selectedOperation, setSelectedOperation] = useState("구획");
-    const handleOperationChange = (value: string) => {
-        setSelectedOperation(value);
-    };
+    const [isAlertOpen, setIsAlertOpen] = useState(false);
+    const closeAlert = () => setIsAlertOpen(false);
+
+    const alertButtons = [
+        {
+            type: "outline",
+            icon: false,
+            label: "취소",
+        },
+        {
+            type: "black",
+            icon: false,
+            label: "확인",
+        },
+    ];
 
     return (
         <div>
             <Drawer
-                id="Alot-regist-drawer"
+                id="cctv-regist-drawer"
                 open={isOpen}
                 handleClose={onClose}
-                title="AIoT센서 상세"
+                title="파프차단기 등록"
                 btns={drawerButtons}
             >
                 <div>
@@ -52,7 +61,7 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                         <div className="table-basic">
                             <table>
                                 <colgroup>
-                                    <col width="120px" />
+                                    <col width="150px" />
                                     <col />
                                 </colgroup>
 
@@ -65,24 +74,23 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                             <SelectBasic size="m" placeholder="선택하세요" />
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            <span>주차장종류</span>
-                                        </th>
-                                        <td>
-                                            <SelectBasic size="m" placeholder="50개씩 보기" className="선택하세요" />
-                                        </td>
-                                    </tr>
+
                                     <tr>
                                         <th>
                                             <span className="text-req">주차장</span>
                                         </th>
                                         <td>
-                                            <div className="flex items-stretch items-center gap-2">
-                                                <Input className="grow readOnly" readOnly />
-                                                <Button type="outline" size="m" onClick={() => setIsModalOpen(true)}>
-                                                    조회
-                                                </Button>
+                                            <div className="flex flex-col gap-2">
+                                                <div className="flex items-stretch items-center gap-2 w-full">
+                                                    <Input className="grow readOnly" readOnly />
+                                                    <Button
+                                                        type="outline"
+                                                        size="m"
+                                                        onClick={() => setIsModalOpen(true)}
+                                                    >
+                                                        조회
+                                                    </Button>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -90,68 +98,85 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                         <th>
                                             <span>파트너명</span>
                                         </th>
-                                        <td>강남구청</td>
+                                        <td>주차장을 등록하면 자동입력 됩니다.</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <span className="text-req">기기ID(DEUI)</span>
                                         </th>
                                         <td>
-                                            <div className="flex gap-4">
-                                                <Input className="grow" value="15488518E551843w1g5e151515" />
-                                            </div>
+                                            <div className="flex gap-4">NNNNNNNN</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <span className="text-req">시리얼번호</span>
+                                            <span className="text-req">업체명</span>
                                         </th>
                                         <td>
                                             <div className="flex gap-4">
-                                                <Input className="grow" value=" 1544-5184422-5855155-5665" />
+                                                <Input className="grow" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>운영방식</th>
+                                        <th>API연동정보</th>
                                         <td>
-                                            <div className="flex gap-4">
-                                                <div className="flex gap-2">
-                                                    <Radio
-                                                        name="operation"
-                                                        label="구획"
-                                                        defaultChecked
-                                                        onChange={() => handleOperationChange("구획")}
-                                                    />
-                                                    <Input className="grow" disabled={selectedOperation !== "구획"} />
+                                            <div className="flex gap-4 flex-col">
+                                                <div className="flex items-center gap-3">
+                                                    <strong className="block w-[50px]">URL</strong>
+                                                    <Input className="grow" />
                                                 </div>
-
-                                                <div className="flex gap-2">
-                                                    <Radio
-                                                        name="operation"
-                                                        label="구간"
-                                                        onChange={() => handleOperationChange("구간")}
-                                                    />
-                                                    <Input className="grow" disabled={selectedOperation !== "구간"} />
+                                                <div className="flex items-center gap-4">
+                                                    <div className="flex items-center gap-3">
+                                                        <strong className="block w-[50px]">아이디</strong>
+                                                        <Input className="grow" />
+                                                    </div>
+                                                    <div className="flex items-center gap-3">
+                                                        <strong className="block w-[55px]">비밀번호</strong>
+                                                        <Input type="password" className="grow" />
+                                                    </div>
+                                                    <Button type="outline" size="m">
+                                                        조회
+                                                    </Button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>통신 개통여부</th>
+                                        <th>프로그램버전정보</th>
                                         <td>
-                                            <div className="flex gap-4">
-                                                <Radio name="f2" label="개통" defaultChecked />
-                                                <Radio name="f2" label="미개통" />
+                                            <div className="flex gap-4 items-center">
+                                                <Input className="grow" size="m" />
+                                                예&#041; v0.1
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>통신상태</th>
-                                        <td className="bg-gray">
-                                            <div className="flex flex-col">
+                                        <th>디지털키</th>
+                                        <td>
+                                            <div className="flex items-stretch items-center gap-2 w-full">
+                                                <Input className="grow readOnly" readOnly />
+                                                <Button type="gray" size="m" onClick={() => setIsAlertOpen(true)}>
+                                                    URL 생성
+                                                </Button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={2} className="bg-gray">
+                                            <div className="flex sub-th">
+                                                관리정보
+                                                <p className="ml-auto">
+                                                    ※최초설치자 등 작업자의 업데이트 이력을 입력합니다.
+                                                </p>
+                                            </div>
+                                            <div className="flex flex-col mt-4">
                                                 <div className="flex items-center">
-                                                    <strong>OFF</strong>
+                                                    <div className="flex items-center gap-3">
+                                                        <p className="h4">
+                                                            총 <span className="text-green">2</span>건
+                                                        </p>
+                                                    </div>
                                                     <Button type="gray" size="m" className="self-center ml-auto">
                                                         추가
                                                     </Button>
@@ -166,7 +191,9 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                         </colgroup>
                                                         <thead>
                                                             <tr>
-                                                                <th>&nbsp;</th>
+                                                                <th>
+                                                                    <span>번호</span>
+                                                                </th>
                                                                 <th>
                                                                     <span className="text-req">이름</span>
                                                                 </th>
@@ -174,7 +201,7 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                                     <span className="text-req">날짜</span>
                                                                 </th>
                                                                 <th>
-                                                                    <span>점검/처리사유</span>
+                                                                    <span>내용 요약</span>
                                                                 </th>
                                                             </tr>
                                                         </thead>
@@ -188,7 +215,7 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                                     <FormDate />
                                                                 </td>
                                                                 <td>
-                                                                    <SelectBasic placeholder="선택하세요" />
+                                                                    <Input className="grow" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -200,21 +227,12 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                                     <FormDate />
                                                                 </td>
                                                                 <td>
-                                                                    <SelectBasic placeholder="선택하세요" />
+                                                                    <Input className="grow" />
                                                                 </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>배터리교체일</th>
-                                        <td>
-                                            <div className="flex gap-4">
-                                                <FormDate />
-                                                <Input className="grow" value="홍길동" />
                                             </div>
                                         </td>
                                     </tr>
@@ -229,11 +247,6 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                                     확인
                                                 </Button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan={2}>
-                                            $관리자명(아이디)$ / $소속$ 센서상태 점검 완료. YYYY-MM-DD hh:mm
                                         </td>
                                     </tr>
                                 </tbody>
@@ -258,16 +271,6 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
                                         </th>
                                         <td>yyyy-mm-dd 00:00</td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            <span>최종수정자</span>
-                                        </th>
-                                        <td>홍길동&#40;admin_hong&#41;</td>
-                                        <th>
-                                            <span>최종수정일시</span>
-                                        </th>
-                                        <td>yyyy-mm-dd 00:00</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -277,8 +280,13 @@ const AIotDetailDrawer = ({ isOpen, onClose }) => {
 
             {/* 주차장 검색 팝업 */}
             <SearchParkingZone isOpen={isModalOpen} onClose={handleModalClose} />
+
+            {/* URL 컨펌 */}
+            <Alert open={isAlertOpen} handleClose={closeAlert} btns={alertButtons}>
+                <p className="h4">디지털키 URL을 생성하시겠습니까?</p>
+            </Alert>
         </div>
     );
 };
 
-export default AIotDetailDrawer;
+export default ParkingBarrierRegist;
