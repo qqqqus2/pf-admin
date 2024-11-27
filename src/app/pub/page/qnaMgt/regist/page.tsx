@@ -12,10 +12,25 @@ import SelectBasic from "@pub/components/Form/Select";
 import Modal from "@pub/components/Modal";
 import IcInfo from "@/assets/icons/ico_circle_info.svg";
 import IcMap from "@/assets/icons/ico_map.svg";
+import OneononeSimpleSearch from "@pub/page/oneononeMgt/list/oneononeSimpleSearch";
 
-export default function VoucherMgtList() {
+export default function QnaMgtDetail() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerType, setDrawerType] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  // 조회 drawer
+  const openSearchDrawer = () => {
+    setDrawerType("search");
+    setIsDrawerOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsDrawerOpen(false);
+    setTimeout(() => {
+      setDrawerType(null);
+    }, 300);
+  };
   // Modal
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -162,7 +177,7 @@ export default function VoucherMgtList() {
                 <tr>
                   <th className="bg-h-green ">신청한 회원</th>
                   <td colSpan={3}>
-                    <button type="button">
+                    <button type="button" onClick={openSearchDrawer}>
                       <span className="underline">홍길동(010-1234-5678)</span>
                     </button>
                   </td>
@@ -296,6 +311,11 @@ export default function VoucherMgtList() {
             </Button>
           </div>
         </Modal>
+        <OneononeSimpleSearch
+          key="search-drawer"
+          isOpen={isDrawerOpen && drawerType === "search"}
+          onClose={handleClose}
+        />
       </div>
     </DefaultLayout>
   );

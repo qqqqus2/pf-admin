@@ -8,10 +8,12 @@ import Flag from "@pub/components/Flag";
 import Checkbox from "@pub/components/Form/Check";
 import Text from "@pub/components/Form/Text";
 import Input from "@pub/components/Form/Input";
+import InputSearch from "@pub/components/Form/InputSearch";
 import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import IcInfo from "@/assets/icons/ico_circle_info.svg";
 import IcArrowRight from "@/assets/icons/ico_arrow_right.svg";
+import Modal from "@pub/components/Modal";
 
 //등록 레이어팝업
 // import { useState } from "react";
@@ -20,6 +22,8 @@ import IcArrowRight from "@/assets/icons/ico_arrow_right.svg";
 export default function oneononeMgtList() {
   const [showDefault, setShowDefault] = useState(true);
   const [showElement, setShowElement] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   const getUrlParameter = (param: string) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -37,6 +41,14 @@ export default function oneononeMgtList() {
     }
   }, []);
 
+  // Modal
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  // valid 체크
+  const checkValid = () => {
+    setIsValid(true);
+  };
   return (
     <DefaultLayout>
       <Topbar
@@ -184,7 +196,7 @@ export default function oneononeMgtList() {
                     <td>
                       <div className="flex items-center gap-3">
                         <SelectBasic size="m" placeholder="선택하세요" />
-                        <Button type="outline" size="m">
+                        <Button type="outline" size="m" onClick={openModal}>
                           링크
                         </Button>
                       </div>
@@ -519,6 +531,18 @@ export default function oneononeMgtList() {
             </Button>
           )}
         </div>
+        <Modal open={isModalOpen} handleClose={closeModal} size="s" title="링크">
+          <InputSearch placeholder="링크할 접수번호를 입력하세요." className="mt-4" onInput={checkValid} />
+          {isValid && <p className="text-red text-sm mt-2">링크 가능합니다.</p>}
+          <div className="flex items-center gap-3 mt-8">
+            <Button type="gray" size="l" className="flex-1">
+              취소
+            </Button>
+            <Button type="green" size="l" className="flex-1">
+              확인
+            </Button>
+          </div>
+        </Modal>
       </div>
     </DefaultLayout>
   );

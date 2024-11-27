@@ -9,10 +9,29 @@ import SelectBasic from "@pub/components/Form/Select";
 import FormDate from "@pub/components/Form/Date";
 import FormTime from "@pub/components/Form/Time";
 
-export default function VoucherMgtList() {
+import SearchParkingZone from "@pub/page/facilityMgt/searchParkingZone";
+
+export default function PaymentMgtList() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showDefault, setShowDefault] = useState(true);
   const [showElement1, setShowElement1] = useState(false);
   const [showElement2, setShowElement2] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+  const drawerButtons = [
+    {
+      type: "outline",
+      icon: false,
+      label: "취소",
+    },
+    {
+      type: "black",
+      icon: false,
+      label: "저장",
+    },
+  ];
 
   const getUrlParameter = (param: string) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -107,7 +126,7 @@ export default function VoucherMgtList() {
                     <td>
                       <div className="flex items-center gap-3">
                         <Input disabled size="l" />
-                        <Button type="outline" size="m">
+                        <Button type="outline" size="m" onClick={() => setIsModalOpen(true)}>
                           조회
                         </Button>
                       </div>
@@ -266,7 +285,7 @@ export default function VoucherMgtList() {
                     <td>
                       <div className="flex items-center gap-3">
                         <Input defaultValue="NNNNN/구획3-88-0(#11111)" disabled size="l" />
-                        <Button type="outline" size="m">
+                        <Button type="outline" size="m" onClick={() => setIsModalOpen(true)}>
                           조회
                         </Button>
                       </div>
@@ -448,7 +467,7 @@ export default function VoucherMgtList() {
                     <td>
                       <div className="flex items-center gap-3">
                         <Input defaultValue="NNNNN/구획3-88-0(#11111)" disabled size="l" />
-                        <Button type="outline" size="m">
+                        <Button type="outline" size="m" onClick={() => setIsModalOpen(true)}>
                           조회
                         </Button>
                       </div>
@@ -519,6 +538,8 @@ export default function VoucherMgtList() {
             결제
           </Button>
         </div>
+        {/* 주차장 검색 팝업 */}
+        <SearchParkingZone isOpen={isModalOpen} onClose={handleModalClose} />
       </div>
     </DefaultLayout>
   );

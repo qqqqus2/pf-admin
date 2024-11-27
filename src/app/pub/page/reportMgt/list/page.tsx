@@ -12,29 +12,11 @@ import SelectBasic from "@pub/components/Form/Select";
 import FormDateRange from "@pub/components/Form/DateRange";
 import IcExcel from "@/assets/icons/ico_excel.svg";
 
-import ReportHistorySearch from "./reportHistorySearch";
-
 //등록 레이어팝업
 // import { useState } from "react";
 // import RegistePop from "../regist/RegistePop";
 
-export default function VoucherMgtList() {
-  // Drawer 상태 관리
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [drawerType, setDrawerType] = useState(null);
-
-  // 조회 drawer
-  const openSearchDrawer = () => {
-    setDrawerType("search");
-    setIsDrawerOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsDrawerOpen(false);
-    setTimeout(() => {
-      setDrawerType(null);
-    }, 300);
-  };
+export default function reportMgtList() {
   return (
     <DefaultLayout>
       <Topbar
@@ -155,7 +137,7 @@ export default function VoucherMgtList() {
                     <Checkbox />
                   </td>
                   <td>
-                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
+                    <button type="button" className="flex items-center gap-1">
                       <span className="underline text-green">RN00002</span>
                     </button>
                   </td>
@@ -180,7 +162,7 @@ export default function VoucherMgtList() {
                     <Checkbox />
                   </td>
                   <td>
-                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
+                    <button type="button" className="flex items-center gap-1">
                       <span className="underline text-green">RN00002</span>
                     </button>
                   </td>
@@ -205,7 +187,7 @@ export default function VoucherMgtList() {
                     <Checkbox />
                   </td>
                   <td>
-                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
+                    <button type="button" className="flex items-center gap-1">
                       <span className="underline text-green">RN00002</span>
                     </button>
                   </td>
@@ -230,7 +212,7 @@ export default function VoucherMgtList() {
                     <Checkbox />
                   </td>
                   <td>
-                    <button type="button" className="flex items-center gap-1" onClick={openSearchDrawer}>
+                    <button type="button" className="flex items-center gap-1">
                       <span className="underline text-green">RN00002</span>
                     </button>
                   </td>
@@ -263,11 +245,6 @@ export default function VoucherMgtList() {
             </div>
           </div>
         </div>
-        <ReportHistorySearch
-          key="search-drawer"
-          isOpen={isDrawerOpen && drawerType === "search"}
-          onClose={handleClose}
-        />
       </div>
     </DefaultLayout>
   );

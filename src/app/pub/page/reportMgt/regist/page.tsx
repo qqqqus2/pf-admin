@@ -12,13 +12,29 @@ import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import IcInfo from "@/assets/icons/ico_circle_info.svg";
 import IcMap from "@/assets/icons/ico_map.svg";
+import ReportHistorySearch from "./reportHistorySearch";
 
-export default function oneononeMgtList() {
+export default function reportMgtList() {
   const [showDefault, setShowDefault] = useState(true);
   const [showElement1, setShowElement1] = useState(false);
   const [showElement2, setShowElement2] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // Drawer 상태 관리
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerType, setDrawerType] = useState(null);
 
+  // 조회 drawer
+  const openSearchDrawer = () => {
+    setDrawerType("search");
+    setIsDrawerOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsDrawerOpen(false);
+    setTimeout(() => {
+      setDrawerType(null);
+    }, 300);
+  };
   // Modal
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -182,9 +198,15 @@ export default function oneononeMgtList() {
                       제보자
                     </th>
                     <td>
-                      <button type="button">
-                        <span className="underline">홍길동(010-1234-5678) / 제보이력 1회</span>
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button type="button">
+                          <span className="underline">홍길동(010-1234-5678)</span>
+                        </button>
+                        <span>/</span>
+                        <button type="button" onClick={openSearchDrawer}>
+                          <span className="underline">제보이력 1회</span>
+                        </button>
+                      </div>
                     </td>
                     <th scope="row" className="bg-h-green">
                       제보일시
@@ -229,19 +251,19 @@ export default function oneononeMgtList() {
                     </th>
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
@@ -411,9 +433,15 @@ export default function oneononeMgtList() {
                       제보자
                     </th>
                     <td>
-                      <button type="button">
-                        <span className="underline">홍길동(010-1234-5678) / 제보이력 1회</span>
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button type="button">
+                          <span className="underline">홍길동(010-1234-5678)</span>
+                        </button>
+                        <span>/</span>
+                        <button type="button" onClick={openSearchDrawer}>
+                          <span className="underline">제보이력 1회</span>
+                        </button>
+                      </div>
                     </td>
                     <th scope="row" className="bg-h-green">
                       제보일시
@@ -458,7 +486,7 @@ export default function oneononeMgtList() {
                     </th>
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
@@ -634,9 +662,15 @@ export default function oneononeMgtList() {
                       제보자
                     </th>
                     <td>
-                      <button type="button">
-                        <span className="underline">홍길동(010-1234-5678) / 제보이력 1회</span>
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button type="button">
+                          <span className="underline">홍길동(010-1234-5678)</span>
+                        </button>
+                        <span>/</span>
+                        <button type="button" onClick={openSearchDrawer}>
+                          <span className="underline">제보이력 1회</span>
+                        </button>
+                      </div>
                     </td>
                     <th scope="row" className="bg-h-green">
                       제보일시
@@ -693,19 +727,19 @@ export default function oneononeMgtList() {
                     </th>
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
-                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
+                        <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="제보연관사진.jpg">
                           <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
@@ -750,6 +784,11 @@ export default function oneononeMgtList() {
             저장
           </Button>
         </div>
+        <ReportHistorySearch
+          key="search-drawer"
+          isOpen={isDrawerOpen && drawerType === "search"}
+          onClose={handleClose}
+        />
         <Modal open={isModalOpen} handleClose={closeModal} size="m" title="이미지 크게보기">
           <Carousel className="mt-4" />
         </Modal>

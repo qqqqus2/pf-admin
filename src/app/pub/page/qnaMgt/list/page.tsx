@@ -16,7 +16,7 @@ import IcInfo from "@/assets/icons/ico_circle_info.svg";
 
 import ShareRequestSearch from "./shareRequestSearch";
 
-export default function VoucherMgtList() {
+export default function QnaMgtList() {
   // Drawer 상태 관리
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [drawerType, setDrawerType] = useState(null);
