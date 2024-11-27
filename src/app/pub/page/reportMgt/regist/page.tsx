@@ -5,20 +5,23 @@ import Topbar from "@pub/components/Topbar";
 import Button from "@pub/components/Button";
 import Image from "next/image";
 import Radio from "@pub/components/Form/Radio";
-import Flag from "@pub/components/Flag";
-import Checkbox from "@pub/components/Form/Check";
-import Text from "@pub/components/Form/Text";
+import Modal from "@pub/components/Modal";
+import Carousel from "@pub/components/Carousel";
 import Input from "@pub/components/Form/Input";
 import Paging from "@pub/components/Grid/Paging";
 import SelectBasic from "@pub/components/Form/Select";
 import IcInfo from "@/assets/icons/ico_circle_info.svg";
-import IcArrowRight from "@/assets/icons/ico_arrow_right.svg";
 import IcMap from "@/assets/icons/ico_map.svg";
 
 export default function oneononeMgtList() {
   const [showDefault, setShowDefault] = useState(true);
   const [showElement1, setShowElement1] = useState(false);
   const [showElement2, setShowElement2] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Modal
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const getUrlParameter = (param: string) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -227,19 +230,19 @@ export default function oneononeMgtList() {
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                       </div>
@@ -456,7 +459,7 @@ export default function oneononeMgtList() {
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                       </div>
@@ -691,19 +694,19 @@ export default function oneononeMgtList() {
                     <td colSpan={3}>
                       <div className="flex items-center gap-[0.8125rem]">
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                         <div className="file-thumb" data-tooltip-id="tooltip" data-tooltip-html="법인통장사본.jpg">
-                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} />
+                          <Image src="/images/test/img_thumb.png" alt="" width={292} height={172} onClick={openModal} />
                           <button type="button" className="file-thumb-btn"></button>
                         </div>
                       </div>
@@ -747,6 +750,9 @@ export default function oneononeMgtList() {
             저장
           </Button>
         </div>
+        <Modal open={isModalOpen} handleClose={closeModal} size="m" title="이미지 크게보기">
+          <Carousel className="mt-4" />
+        </Modal>
       </div>
     </DefaultLayout>
   );
