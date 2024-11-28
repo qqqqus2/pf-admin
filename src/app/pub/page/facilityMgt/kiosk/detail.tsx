@@ -187,7 +187,7 @@ const KioskDetail = ({ isOpen, onClose }) => {
                                                             type="button"
                                                             className="file-thumb-btn"
                                                             onClick={(e) => {
-                                                                e.stopPropagation(); // 버블링 방지
+                                                                e.stopPropagation();
                                                                 const newImages = images.filter((_, i) => i !== index);
                                                                 setImages(newImages);
                                                             }}
