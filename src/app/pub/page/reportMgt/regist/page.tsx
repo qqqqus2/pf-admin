@@ -572,9 +572,9 @@ export default function reportMgtList() {
                     <td colSpan={3}>
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-6">
-                          <Radio name="t2" label="반영필요" defaultChecked />
-                          <Radio name="t2" label="미반영" />
-                          <Radio name="t2" label="기타" />
+                          <Radio name="t3" label="반영필요" defaultChecked />
+                          <Radio name="t3" label="미반영" />
+                          <Radio name="t3" label="기타" />
                         </div>
                         <span className="text-red">※내부관리용으로 제보자에게 통보되지 않습니다.</span>
                       </div>
