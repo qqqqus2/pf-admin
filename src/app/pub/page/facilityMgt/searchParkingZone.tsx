@@ -112,9 +112,9 @@ const searchParkingZone = ({ isOpen, onClose }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>
+                                    <td>
                                         <Checkbox />
-                                    </th>
+                                    </td>
                                     <td>NNNNN</td>
                                     <td>정보등록증</td>
                                     <td>

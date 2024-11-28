@@ -53,17 +53,13 @@ export const AlotTab = () => {
                         </div>
                     </li>
                     <li>
-                        <p className="inline-flex items-center gap-2">
-                            주차장종류
-                        </p>
+                        <p className="inline-flex items-center gap-2">주차장종류</p>
                         <div className="flex items-center gap-6">
                             <SelectBasic size="m" placeholder="전체" />
                         </div>
                     </li>
                     <li>
-                        <p className="inline-flex items-center gap-2">
-                            통신 개통여부
-                        </p>
+                        <p className="inline-flex items-center gap-2">통신 개통여부</p>
                         <div className="flex items-center gap-6">
                             <Radio name="f1" label="전체" defaultChecked />
                             <Radio name="f1" label="개통(Y)" />
@@ -71,9 +67,7 @@ export const AlotTab = () => {
                         </div>
                     </li>
                     <li>
-                        <p className="inline-flex items-center gap-2">
-                            통신상태
-                        </p>
+                        <p className="inline-flex items-center gap-2">통신상태</p>
                         <div className="flex items-center gap-6">
                             <Radio name="f2" label="전체" defaultChecked />
                             <Radio name="f2" label="ON" />
@@ -81,9 +75,7 @@ export const AlotTab = () => {
                         </div>
                     </li>
                     <li>
-                        <p className="inline-flex items-center gap-2">
-                            주차장 종류
-                        </p>
+                        <p className="inline-flex items-center gap-2">주차장 종류</p>
                         <div className="flex items-center gap-6">
                             <Radio name="f3" label="전체" defaultChecked />
                             <Radio name="f3" label="사용(Y)" />
@@ -94,10 +86,7 @@ export const AlotTab = () => {
                         <p className="inline-flex items-center gap-2">검색어</p>
                         <div className="inline-flex items-center gap-2">
                             <SelectBasic size="m" placeholder="전체" />
-                            <Input
-                                placeholder="검색어를 입력하세요."
-                                className="grow"
-                            />
+                            <Input placeholder="검색어를 입력하세요." className="grow" />
                         </div>
                     </li>
                     <li className="col-span-2">
@@ -122,30 +111,18 @@ export const AlotTab = () => {
                             총 <span className="text-green">231</span>건
                         </p>
 
-                        <Button
-                            type="outline"
-                            size="s"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="s" className="justify-self-end">
                             <IcExcel />
                             일괄삭제
                         </Button>
                     </div>
 
                     <div className="ml-auto flex flex-wrap items-center gap-3">
-                        <Button
-                            type="outline"
-                            size="s"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="s" className="justify-self-end">
                             <IcExcel />
                             양식다운로드
                         </Button>
-                        <Button
-                            type="outline"
-                            size="s"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="s" className="justify-self-end">
                             <IcExcel />
                             일괄등록
                         </Button>
@@ -195,9 +172,9 @@ export const AlotTab = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <th>
+                                <td>
                                     <Checkbox />
-                                </th>
+                                </td>
                                 <td>10</td>
                                 <td>
                                     <a
@@ -256,46 +233,25 @@ export const AlotTab = () => {
                     </table>
                 </div>
                 <div className="grid grid-cols-4 items-center mt-6">
-                    <Button
-                        type="outline"
-                        size="m"
-                        className="justify-self-start"
-                    >
+                    <Button type="outline" size="m" className="justify-self-start">
                         선택삭제
                     </Button>
                     <Paging className="col-start-2 col-span-2" />
                     <div className="flex ml-auto items-center gap-3">
-                        <Button
-                            type="outline"
-                            size="m"
-                            className="justify-self-end"
-                        >
+                        <Button type="outline" size="m" className="justify-self-end">
                             <IcExcel />
                             엑셀다운로드
                         </Button>
-                        <Button
-                            type="black"
-                            size="m"
-                            className="justify-self-start"
-                            onClick={openRegistDrawer}
-                        >
+                        <Button type="black" size="m" className="justify-self-start" onClick={openRegistDrawer}>
                             등록
                         </Button>
                     </div>
                 </div>
             </div>
             {/* 등록 Drawer */}
-            <Regist
-                key="regist-drawer"
-                isOpen={isDrawerOpen && drawerType === "regist"}
-                onClose={handleClose}
-            />
+            <Regist key="regist-drawer" isOpen={isDrawerOpen && drawerType === "regist"} onClose={handleClose} />
             {/* 상세 Drawer */}
-            <Detail
-                key="detail-drawer"
-                isOpen={isDrawerOpen && drawerType === "detail"}
-                onClose={handleClose}
-            />
+            <Detail key="detail-drawer" isOpen={isDrawerOpen && drawerType === "detail"} onClose={handleClose} />
         </div>
     );
 };

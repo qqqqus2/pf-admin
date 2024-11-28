@@ -139,9 +139,9 @@ export const CCTVTab = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <th>
+                                <td>
                                     <Checkbox />
-                                </th>
+                                </td>
                                 <td>10</td>
                                 <td>
                                     <a
