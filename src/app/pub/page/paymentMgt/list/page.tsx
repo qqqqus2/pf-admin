@@ -302,7 +302,7 @@ export default function PaymentMgtList() {
                   <tr>
                     <th scope="row">공유시간</th>
                     <td colSpan={3}>
-                      <div className="table-basic bordered h-60 overflow-y-auto">
+                      <div className="table-basic bordered h-[15.3rem] overflow-y-auto">
                         <table>
                           <colgroup>
                             <col />
